@@ -1,0 +1,14 @@
+
+*.pyc
+
+**/__pycache__/
+
+**/.env
+**/db.sqlite3
+
+**/.vscode
+
+**/static/admin
+**/static/rest_framework
+
+.gitmodules

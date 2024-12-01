@@ -1,0 +1,109 @@
+.content {
+    padding: 10px 10px 0;
+    background-color: rgba(128, 128, 128, 0.119);
+}
+
+.auction-item {
+    background-color: white;
+    padding: 15px;
+    margin: 0 0 20px;
+    font-size: 18px;
+    border-radius: 10px;
+}
+
+.special-inner {
+    font-size: 16px;
+}
+
+.special-inner h1 {
+    font-size: 22px;
+    padding: 8px 0;
+}
+
+#leader-bet {
+    color: rgb(187, 78, 0);
+}
+
+#common-bank {
+    color: rgb(187, 131, 0);
+}
+
+.bank {
+    padding: 15px 0;
+}
+
+.bet-time {
+    font-size: 14px;
+    padding-bottom: 15px;
+}
+
+.progressbar {
+    width: 100%;
+}
+
+.progressbar-inner {
+    height: 5px;
+    width: 100%;
+    background-color: rgb(255, 179, 0);
+}
+
+.content-wrapper {
+    position: relative;
+    top: 380px;
+    background-color: rgba(128, 128, 128, 0.133);
+    padding: 0 10px 10px;
+}
+
+.user-item {
+    display: flex;
+    padding: 15px 0;
+    border-bottom: 1px solid rgba(99, 99, 99, 0.118);
+}
+
+.user-image {
+    width: 50px;
+    height: 50px;
+    margin-right: 10px;
+}
+
+.user-image img {
+    width:100%; 
+    height:100%;
+    border-radius: 50%;
+}
+
+.user-data {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+.user-bet {
+    font-size: 14px;
+    color: gray;
+
+}
+
+.create-bet {
+    padding: 20px 0 0;
+}
+
+.bet-input input {
+    width: 100%;
+    border: none;
+    border-radius: 5px;
+    height: 35px;
+    padding: none;
+    margin: 15px 0;
+}
+
+.bet-btn {
+    width: 100%;
+    font-size: 16px;
+    text-align: center;
+    background-color: rgb(0, 60, 255);
+    border-radius: 5px;
+    height: 35px;
+    font-weight: 700;
+    color: white;
+}

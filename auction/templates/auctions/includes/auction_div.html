@@ -1,0 +1,21 @@
+{% load static %}
+
+<div class="auction-item">
+    <div class="auction-head space-between">
+        <div>
+            <div class="gray auction-title">Аукцион #{{auction.id}}</div>
+            <h2>@{{auction.owner}}</h2>
+        </div>
+        <div>
+            <a href="{% url 'auctions:auction' group_name=auction.group_name %}" class="go-auction">
+                <img src="{% static 'frontend\auction\img\arrow-right.svg' %}" alt="back">
+            </a>
+        </div>
+    </div>
+    <div class="min-bet space-between">
+        <div>Минимальная ставка:</div><div>{{auction.min_bet}}$</div>
+    </div>
+    <div class="auction-members space-between">
+        <div class="gray">Участников:</div><div><span id='auction-members-{{auction.id}}'>{{auction.members_count}}</span>/{{auction.max_members}}</div>
+    </div>
+</div>

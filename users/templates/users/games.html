@@ -1,0 +1,7 @@
+{% extends "auctions/base.html" %}
+
+{% block content %}
+<div><a href="{% url 'auctions:index' %}">Аукцион</a></div>
+<div><a href="{% url 'tictactoes:index' %}">Крестики нолики</a></div>
+<div><a href="{% url 'auctions:index' %}">Джекпот</a></div>
+{% endblock content %}

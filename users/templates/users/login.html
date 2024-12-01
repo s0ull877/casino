@@ -1,0 +1,13 @@
+{% extends "auctions/base.html" %}
+
+{% block content %}
+<form action="{% url 'users:login' %}" method='POST'>
+    {% csrf_token %}
+    <input style="display: none;" type="number" name="user_id" id="user_id" value={{request.GET.user_id}}>
+    <input type="password" name="password" id="password">
+    <label for="password">Введите пин-код</label>
+    <div>
+        <button style="cursor: pointer; border: 1px solid #000000" type="submit">Войти</button>
+    </div>
+</form>
+{% endblock content %}

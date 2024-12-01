@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="css\reset.css">
+    <link rel="stylesheet" href="css\auctions.css">
+    <link rel="stylesheet" href="css\tictactoe.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="result">
+        <p>
+            Вы победили!
+        </p>
+        <a href="#">выйти</a>
+    </div>
+    <div style="background-color: white; height: 40px;" class="fixed-head">
+        <header class="header space-between">
+            <div>
+                <p>Крестики-нолики 3х3</p>
+            </div>
+            <div>
+                Время на ход:&nbsp<span id="progressbar1-time"></span>
+            </div>
+        </header>
+        <div style="background-color: rgba(128, 128, 128, 0.119);">
+            <div class="progressbar" id="progressbar1">
+                <div class="progressbar-inner"></div>
+            </div>
+        </div>
+    </div>
+    <div class="content" style="padding-top: 45px; height: 100%;">
+        <div class="main-auction">
+            <div class="auction-item">
+                <div class="space-between">
+                    <div class="main-data" style="align-items: center;">
+                        <div style="display: flex;">
+                            <div style="width: 55px; height: 55px; padding-right: 10px;">
+                                <img width="100%" height="100%" style="border-radius: 50%;" src="img/avatar.jpg" alt="user-image">
+                            </div>
+                            <div style="display: flex; flex-direction: column; justify-content: space-around;">
+                                <h2>Никнейм</h2>
+                                <div class="auction-members">
+                                    <span class="gray">Ваш опонент</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="main-img">
+                        <p style="width: 45px; height: 45px;">
+                            <img id="first-player" class="my-move" style="display: none;" height="100%" width="100%" src="img\tictactoe-cross.svg" alt="main-auction-photo">
+                            <img id="second-player" class="opponent-move" height="100%" width="100%" src="img\tictactoe-cyrcle.svg" alt="main-auction-photo">
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="map-wrap">
+            <div class="map">
+
+            </div>
+        </div>
+        <div class="bet">
+            <div class="space-between">
+                <div>Ставка:</div>
+                <div>$5</div>
+            </div>
+        </div>
+        <div class="footer">
+            <button type="button" class="submit" onclick="UpdateMap()" disabled>
+                <div>
+                    Подтвердить ход
+                </div>
+            </button>
+        </div>
+    </div>
+    <script>
+
+        let submit_button = document.querySelector('.submit')
+
+        function UpdateMap() {
+            
+            submit_button.disabled = true
+            let place = document.querySelector('input[type="radio"]:checked')
+            place.cheked = false
+            place.disabled = true
+            let label_for_place = document.querySelector(`label[for="${place.id}"]`)
+            label_for_place.style.border = 'none'
+            move = document.querySelector('.my-move')
+            label_for_place.innerHTML = `<img width="100%" height="100%" src=${move.src} alt=${move.id}>`
+
+        }
+
+        function progressBar(s) {
+
+            let i = s
+            let inteval = setInterval(function() {
+                
+                i -= 1;
+                document.getElementById('progressbar1').style.width = `${(100 * i) / s}%`;
+                document.getElementById('progressbar1-time').innerHTML = `${Math.floor(i%s /60)}:${i%60 < 10 ? '0' : ''}${i%60}`;
+
+                if (i == 0) {
+                    clearInterval(inteval)
+                    alert('Победа')
+                    // победитель определен
+                }
+
+            }, 1010)
+
+            }
+
+        function writeMap(map) {
+
+            let map_div = document.querySelector('.map')
+            map_div.style.setProperty('grid-template-columns', `repeat(${map.length}, 1fr)`)
+            map_div.style.setProperty('grid-template-rows', `repeat(${map.length}, 1fr)`)
+
+            inner = ''
+            for (let row = 0; row < map.length; row++) {
+                
+                for (let column = 0; column < map[row].length; column++) {
+                    
+                    if (map[row][column] == 0) {
+                        let move = document.getElementById('first-player')
+                        inner+= `<input type="radio" name="place" id="${row}${column}" disabled><label for="${row}${column}" class="map-item"><img width="100%" height="100%" src=${move.src} alt=${move.id}></label>`
+                    } else if (map[row][column] == 1) {
+                        let move = document.getElementById('second-player')
+                        inner+= `<input type="radio" name="place" id="${row}${column}" disabled><label for="${row}${column}" class="map-item"><img width="100%" height="100%" src=${move.src} alt=${move.id}></label>`
+                    } else {
+                        inner+= `<input type="radio" name="place" id="${row}${column}"><label for="${row}${column}" class="map-item"></label>`
+                    }
+                
+                }
+            }
+            map_div.innerHTML = inner
+
+            let inputs = document.querySelectorAll('input[type="radio"]')
+            
+            inputs.forEach(input => {
+                input.addEventListener('change', function() {
+                    submit_button.disabled = false
+                })
+            });
+        }
+
+        progressBar(120)
+        writeMap([[1,0,null,null],[null,null,null,null],[null,null,null,null],[null,null,null,null]])
+
+    </script>
+</body>
+</html>

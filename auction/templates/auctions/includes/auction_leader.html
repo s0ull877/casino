@@ -1,0 +1,12 @@
+{% load static %}
+{% load humanize %}
+
+{% if auction.leader %}
+        <h1>Текущий лидер</h1>
+        <div><span id="leader-bet">${{auction.leader.deposit | intcomma}}</span> @<span id="leader-nickname">{{auction.leader.owner.nickname}}</span></div>
+        <div class="bank">Общий банк: <span id="common-bank">${{auction.common_bank | intcomma }}</span></div>
+{% else %}
+        <h1>Ожидание ставок...</h1>
+        <div><span id="leader-bet">$0.00</span> @<span id="leader-nickname">nickname</span></div>
+        <div class="bank">Общий банк: <span id="common-bank">${{auction.common_bank | intcomma }}</span></div>
+{% endif %}

@@ -1,0 +1,39 @@
+{% extends "auctions/base.html" %}
+
+{% block content %}
+
+    <form action="{% url 'auctions:create' %}" method="POST">
+        {% csrf_token %}
+
+        <p>Создание аукциона:</p>
+
+        <div>
+            <input type="range" id="max_members" name="max_members" min="10" max="50" value="10" step="1" />
+            <label for="max_members">Кол-во участников: <span class="max_members">10</span></label>
+        </div>
+
+        <div>
+            <input type="range" id="min_bet" name="min_bet" value="1" min="1" max="1000" step="1" />
+            <label for="min_bet">Минимальная ставка: $<span class="min_bet">1</span></label>
+        </div>
+
+        <div>
+            <button type="submit">
+                Создать
+            </button>
+        </div>
+
+    </form>
+
+    <script>
+
+        let inputs = document.querySelectorAll("input");
+
+        inputs.forEach(function(input) {
+            input.addEventListener("change", function() {
+                document.querySelector(`.${this.id}`).innerHTML = this.value
+            });
+        });
+
+    </script>
+{% endblock content %}
