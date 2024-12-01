@@ -14,4 +14,4 @@ class TransactionSerializer(serializers.ModelSerializer):
     class Meta:
         
         model = BallanceTransaction
-        fields = ('sum', 'description',)
+        fields = ('sum', 'description', 'time',)

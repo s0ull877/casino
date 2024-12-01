@@ -37,25 +37,23 @@ def ballance_apiview(request):
     
     try:
 
-        if request.method == 'GET':
+        if request.method == 'POST':
                 
-                data={'user_id': wallet.user.user_id, 'ballance': wallet.ballance}
+            try:
 
-                return response.Response(data={'user_id': wallet.user.user_id, 'ballance': wallet.ballance}, status=status.HTTP_200_OK)
+                wallet.transaction(**request.data)
         
-        else:
+            except TypeError as ex:
+                return response.Response(data={'error': str(ex)[str(ex).find('got an'): -1]}, status=status.HTTP_400_BAD_REQUEST)
+            
+            except InvalidOperation:
+                return response.Response(data={'error': 'Sum must be digits'}, status=status.HTTP_400_BAD_REQUEST)
+            
+            except ValidationError as ex:
+                return response.Response(data={'error': ex.message}, status=status.HTTP_402_PAYMENT_REQUIRED)
 
-            wallet.transaction(**request.data)
-            return response.Response(data={"ballance":wallet.ballance}, status=status.HTTP_200_OK)
-        
-    except TypeError as ex:
-        return response.Response(data={'error': str(ex)[str(ex).find('got an'): -1]}, status=status.HTTP_400_BAD_REQUEST)
-    
-    except InvalidOperation:
-        return response.Response(data={'error': 'Sum must be digits'}, status=status.HTTP_400_BAD_REQUEST)
-    
-    except ValidationError as ex:
-        return response.Response(data={'error': ex.message}, status=status.HTTP_400_BAD_REQUEST)
+        return response.Response(data={'user_id': user_id, 'ballance': wallet.ballance}, status=status.HTTP_200_OK)
+                
 
     except Exception as ex:
         return response.Response(data={'error': str(ex)}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
@@ -69,7 +67,7 @@ def transaction_apiview(request):
         wallet: UserWallet = UserWallet.objects.prefetch_related('user').get(user__user_id=user_id)
 
     except KeyError:
-        return response.Response(data={'error': 'Invalid query params, expected `user_id`'}, status=status.HTTP_400_BAD_REQUEST)
+        return response.Response(data={'error': 'Invalid data, expected `user_id`'}, status=status.HTTP_400_BAD_REQUEST)
     except UserWallet.DoesNotExist:
         return response.Response(data={'error': 'User does not exist'}, status=status.HTTP_404_NOT_FOUND)
     

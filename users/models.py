@@ -52,7 +52,7 @@ class User(AbstractBaseUser, PermissionsMixin):
     )
     image = models.ImageField(
         verbose_name='аватар пользователя',
-        upload_to='media/users_images',
+        upload_to='users_images',
         null=True, blank=True
     )
 
