@@ -61,6 +61,10 @@ class BallanceTransaction(models.Model):
         verbose_name='Описание',
         max_length=128
     )
+    time = models.DateTimeField(
+        verbose_name='Дата транзакции',
+        auto_now_add=True
+    )
 
     def __str__(self):
         return f'{self.description} | {self.sum}$'
