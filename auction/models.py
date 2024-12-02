@@ -89,9 +89,9 @@ def post_save(sender, instance, using=None, **kwargs):
                 instance.delete()
             else:
                 wallet = UserWallet.objects.get(user=leader.owner)
-                wallet.transaction(instance.common_bank, f"Auction win #{instance.pk}")
+                wallet.transaction(instance.common_bank, '💎 Аукцион', f"Победа #{instance.pk}")
 
-    except TypeError:
+    except TypeError as ex:
         pass
 
 

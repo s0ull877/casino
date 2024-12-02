@@ -206,7 +206,7 @@ class AuctionConsumer(WebsocketConsumer):
         current_ballance = str(wallet.ballance)
 
         try:
-            wallet.transaction(Decimal(text_data) * -1, f"Auction deposit #{self.auction.pk}")
+            wallet.transaction(Decimal(text_data) * -1, "💎 Аукцион", f"Депозит #{self.auction.id}")
         
         except ValidationError:
             

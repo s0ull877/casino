@@ -8,10 +8,14 @@ class UserSerializer(serializers.ModelSerializer):
         model = User
         fields = ('user_id', 'password', 'nickname', 'image',)
 
+    def create(self, validated_data):
+
+        instance = User.objects.create_user(**validated_data)
+        return instance
 
 class TransactionSerializer(serializers.ModelSerializer):
 
     class Meta:
         
         model = BallanceTransaction
-        fields = ('sum', 'description', 'time',)
+        fields = ('sum', 'title', 'description', 'time',)

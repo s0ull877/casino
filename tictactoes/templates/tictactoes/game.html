@@ -169,9 +169,9 @@
                     document.querySelector('.result').style.display = 'block'
                     console.log(document.getElementById("oponent-nickname").innerText, data.winner)
                     if (document.getElementById("oponent-nickname").innerText == data.winner) {
-                        document.getElementById('result').innerHTML = 'Вы победили!'
-                    } else {
                         document.getElementById('result').innerHTML = 'Вы проиграли!'
+                    } else {
+                        document.getElementById('result').innerHTML = 'Вы победили!'
                     }
                     ws.close()
 

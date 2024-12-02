@@ -1,5 +1,6 @@
-from django.http import Http404
+from django.http import Http404, HttpResponseRedirect
 from django.shortcuts import redirect, render
+from django.urls import reverse
 from django.contrib.auth.decorators import login_required
 
 from .models import Auction
@@ -15,7 +16,7 @@ def auctions_view(request):
         active=True
     )[0]
 
-    return render(request, 'auctions/auctions.html', context={'auctions': auctions, 'diamond_auction': diamond_auction})
+    return render(request, 'auctions/auctions2.html', context={'auctions': auctions, 'diamond_auction': diamond_auction, 'form': AuctionCreateForm()})
 
 @login_required
 def auction_view(request, group_name):
@@ -25,7 +26,7 @@ def auction_view(request, group_name):
     except Auction.DoesNotExist:
         raise Http404()
 
-    return render(request, 'auctions/auction.html', context={'auction': auction})
+    return render(request, 'auctions/auction_game.html', context={'auction': auction})
 
 
 @login_required
@@ -36,7 +37,7 @@ def diamond_auction_view(request):
     except Auction.DoesNotExist:
         raise Http404()
 
-    return render(request, 'auctions/auction.html', context={'auction': auction})
+    return render(request, 'auctions/auction_game.html', context={'auction': auction})
 
 
 def auction_over_view(request, group_name):
@@ -52,28 +53,20 @@ def auction_over_view(request, group_name):
 @login_required
 def auction_create_view(request):
 
-    form = AuctionCreateForm()
+    data = {
+        'owner': request.user,
+        'max_members': request.POST.get('max_members'),
+        'min_bet': request.POST.get('min_bet'),
+    }
 
-    if request.method == 'GET':
+    form = AuctionCreateForm(data)
 
-        return render(request, 'auctions/auction_create.html', context={'form': form})
-    
-    else:
+    if form.is_valid():
 
-        data = {
-            'owner': request.user,
-            'max_members': request.POST.get('max_members'),
-            'min_bet': request.POST.get('min_bet'),
-        }
+        auction: Auction = form.save()
 
-        form = AuctionCreateForm(data)
+        return redirect(to='auctions:auction', group_name=auction.group_name)
 
-        if form.is_valid():
-
-            auction: Auction = form.save()
-
-            return redirect(to='auctions:auction', group_name=auction.group_name)
-
-        return render(request, 'auctions/auction_create.html', context={'form': AuctionCreateForm()})
+    return HttpResponseRedirect(redirect_to=reverse('auctions:index'))
 
 

@@ -27,7 +27,7 @@ class UserWallet(models.Model):
         if self.ballance < 0:
             raise ValidationError('Ballance cant be less 0')
         
-    def transaction(self, sum, description):
+    def transaction(self, sum, title, description):
 
         self.ballance += Decimal(sum)
         self.clean()
@@ -35,6 +35,7 @@ class UserWallet(models.Model):
         BallanceTransaction.objects.create(
                 ballance=self,
                 sum=f'{sum}',
+                title=title,
                 description=description
             )
 
@@ -57,9 +58,13 @@ class BallanceTransaction(models.Model):
         decimal_places=2,
         max_digits=13,
     )
+    title = models.CharField(
+        verbose_name='Оглавление',
+        max_length=32
+    )
     description= models.CharField(
         verbose_name='Описание',
-        max_length=128
+        max_length=128,
     )
     time = models.DateTimeField(
         verbose_name='Дата транзакции',
@@ -67,7 +72,7 @@ class BallanceTransaction(models.Model):
     )
 
     def __str__(self):
-        return f'{self.description} | {self.sum}$'
+        return f'{self.title} {self.description} | {self.sum}$'
 
 
 

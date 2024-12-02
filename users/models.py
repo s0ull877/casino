@@ -55,6 +55,10 @@ class User(AbstractBaseUser, PermissionsMixin):
         upload_to='users_images',
         null=True, blank=True
     )
+    register_time = models.DateTimeField(
+        verbose_name='Дата регистрации',
+        auto_now_add=True, blank=True
+    )
 
     is_superuser = models.BooleanField(
         _("admin status"),
@@ -65,12 +69,21 @@ class User(AbstractBaseUser, PermissionsMixin):
     @property
     def is_staff(self):
         return self.is_superuser
-
+    
+    @property
+    def total_bet(self):
+        try:
+            return self.wallet.transactions.filter(sum__lt=0).exclude(title__startswith="@").aggregate(models.Sum('sum'))['sum__sum'] * -1
+        except TypeError:
+            return 0
+        
     def get_full_name(self):
         return ('%s %s') % (self.user_id, self.nickname)
 
     def get_short_name(self):
         return self.user_id
+    
+
 
     USERNAME_FIELD = 'user_id'
     objects = CustomUserManager()

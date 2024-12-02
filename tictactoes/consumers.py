@@ -34,8 +34,8 @@ class GameConsumer(WebsocketConsumer):
 
             cache.set(f'game_{self.group_name}', now())
             try:
-                self.game.first_player.wallet.transaction(Decimal(-5), f'Tictactoe game #{self.game.id}')
-                self.game.second_player.wallet.transaction(Decimal(-5), f'Tictactoe game #{self.game.id}')
+                self.game.first_player.wallet.transaction(Decimal(-5),'❌ Крестики-нолики', f'Участие #{self.game.id}')
+                self.game.second_player.wallet.transaction(Decimal(-5), '❌ Крестики-нолики', f'Участие #{self.game.id}')
             except ValidationError:
                 # some_code
                 ...
@@ -84,7 +84,7 @@ class GameConsumer(WebsocketConsumer):
 
         winner = self.game.get_winner(map)
         if winner:
-            winner.wallet.transaction(Decimal(10), f'Tictactoe game #{self.game.id} win')
+            winner.wallet.transaction(Decimal(10),'❌ Крестики-нолики', f'Победа #{self.game.id}')
             event = {
                 'type': 'update_map_handler',
                 'map': map,

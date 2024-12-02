@@ -1,0 +1,161 @@
+/* @font-face {
+    font-family: 'Manrope', sans-serif;
+    src: url('fonts/Manrope-SemiBold');
+} */
+
+
+body {
+    font-family: 'Manrope';
+    margin: 0;
+    padding: 0;
+    background-color: #030306;
+    color: white;
+}
+/* 
+.status_bar svg{
+    padding: 15px;
+} */
+
+.status_bar {
+    padding: 15px;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 14px;
+    font-weight: 600;
+    display: flex;
+}
+
+.status_bar span {
+    background: linear-gradient(#2C8EFF, #005AC0) ;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.background_games {
+    padding: 10px 25px 25px 25px;
+    border-top: 1px solid #0A0910;
+    /* border-bottom: 1px solid #0A0910; */
+    margin-top: -35px;
+}
+
+.background_games {
+    font-size: 12px;
+    color: #707385;
+}
+
+.background_list {
+    display: flex;
+    flex-direction: column;
+    gap: 100px;
+}
+
+.games_list {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.jekpot {
+    /* width: 340px; */
+    background-image: url('../assets/img/jekpot.svg');
+}
+
+.aukcion {
+    background-image: url('../assets/img/aukcion.svg');
+}
+
+.crestikinoloko {
+    background-image: url('../assets/img/crestiki-noloko.svg');
+}
+
+.players {
+    max-width: 334px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #0A0A13;
+    box-shadow: inset 0px 1px 4px rgba(255, 255, 255, 0.033);
+}
+
+.players svg{
+    padding-right: 12px;
+}
+
+.type_game {
+    /* background-image: url('../assets/img/Frame\ 187.svg'); */
+    background-repeat: no-repeat;
+    border-radius: 8px;
+    padding: 3px;
+}
+
+.type_game p{
+    padding-left: 15px;
+}
+
+.title_type_game {
+    color: white;
+    font-size: 16px;
+    margin-top: 8px;
+    margin-bottom: 0;
+}
+
+.about_type_game {
+    color: rgba(255, 255, 255, 0.713);
+    font-size: 12px;
+}
+
+.menu_items {
+    /* box-shadow: 0 2px 4px rgba(235, 238, 23, 0.3),
+              0 6px 10px rgba(0, 0, 0, 0.1); */
+    border-radius: 8px;
+    padding: 15px;
+    gap: 10px;
+    display: flex;
+    justify-content: center;
+    background-color: #06070D;
+    max-width: 42%;
+}
+
+.center_items {
+    display: flex;
+    justify-content: center;
+}
+
+.keyboard {
+    max-height: 21px;
+    border-radius: 8px;
+    padding: 12px;
+    background-color: #090a10;
+}
+/* .position_class {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+} */
+
+.games {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(#2C8EFF, #005AC0) ;
+    box-shadow:0px -6px 15px #3f99ff5a;
+}
+
+
+.bottom_bar {
+    position: fixed;
+    bottom: 14.5px;
+    color: white;
+    z-index: 1000;
+}
+
+.bottom_bar_position {
+    display: flex;
+    justify-content: center;
+}
+
+a.no_hook:active,
+a.no_hook:hover,
+a.no_hook {
+    text-decoration: none;
+}
