@@ -16,7 +16,7 @@ body {
     padding: 15px;
 } */
 
-.status_bar {
+.auction_status_bar {
     padding: 5px 15px 5px 15px;
     justify-content: space-between;
     align-items: center;
@@ -53,7 +53,7 @@ body {
     align-items: center;
 }
 
-.games_list {
+.auction_games_list {
     display: flex;
     flex-direction: column;
     gap: 15px;

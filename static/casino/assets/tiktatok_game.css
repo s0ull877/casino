@@ -16,7 +16,7 @@ body {
     padding: 15px;
 } */
 
-.status_bar {
+.tictaktoe_status_bar {
     padding: 5px 15px 5px 15px;
     justify-content: space-between;
     align-items: center;

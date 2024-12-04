@@ -10,7 +10,7 @@
 {% block content %}
     <!-- <header>
         <div class="header_position"> -->
-            <div class="status_bar">
+            <div class="auction_status_bar">
                 <a href="{% url 'users:games' %}" class="no_hook">
                     <div class="back_button">
                         <svg width="10" height="8" viewBox="0 0 10 8" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -38,7 +38,7 @@
                 {% else %}
                     <p class="offical_title">Официальный аукцион</p>
                 {% endif %}
-                <div class="games_list">
+                <div class="auction_games_list">
                     <div class="type_game auction_content">
                         <div class="auction_content_about">
                             <p class="title_type_game">Аукцион №{{auction.id}}</p>

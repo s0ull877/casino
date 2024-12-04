@@ -23,7 +23,7 @@ def create_user_apiview(request):
         return response.Response(data=serializer.errors, status=status.HTTP_400_BAD_REQUEST)
     
 
-@api_view(['GET', 'POST'])
+@api_view(['GET', 'POST', 'DELETE'])
 def ballance_apiview(request):
 
     try:
@@ -36,6 +36,12 @@ def ballance_apiview(request):
         return response.Response(data={'error': 'User does not exist'}, status=status.HTTP_404_NOT_FOUND)
     
     try:
+
+        if request.method == 'DELETE':
+
+            wallet.user.delete()
+            return response.Response(status=status.HTTP_204_NO_CONTENT)
+
 
         if request.method == 'POST':
                 

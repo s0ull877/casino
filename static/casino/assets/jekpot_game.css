@@ -79,7 +79,7 @@ canvas {
     left: 40px;
 }
 
-.status_bar {
+.jekpot_status_bar {
     padding: 5px 15px 5px 15px;
     justify-content: space-between;
     align-items: center;
@@ -98,7 +98,6 @@ canvas {
 
 .background_games {
     padding: 10px 25px 25px 25px;
-    border-top: 1px solid #0A0910;
     /* border-bottom: 1px solid #0A0910; */
 }
 
@@ -116,7 +115,7 @@ canvas {
     align-items: center;
 }
 
-.games_list {
+.jekpot_games_list {
     display: flex;
     flex-direction: column;
 }
@@ -135,7 +134,7 @@ canvas {
     padding-left: 15px;
 }
 
-.games_list {
+.jekpot_games_list {
     border-radius: 8px;
     padding: 3px;
     /* max-height: 90px; */

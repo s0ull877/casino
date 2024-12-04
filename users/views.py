@@ -52,11 +52,13 @@ def games_view(request):
 
 @login_required
 def top_users_view(request):
+    context = {}
 
     top_users = User.objects.select_related('wallet').all()
-    top_users = sorted(top_users, key=lambda user: user.total_bet, reverse=True)
+    context['count'] = top_users.count()
+    context['top_users'] = sorted(top_users, key=lambda user: user.total_bet, reverse=True)[:100]
 
-    return render(request=request, template_name='users/top_players.html', context={'top_users': top_users[:10]})
+    return render(request=request, template_name='users/top_players.html', context=context)
 
 
 @login_required

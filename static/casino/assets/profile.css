@@ -229,9 +229,6 @@ a.no_hook {
     padding: 10px 0 10px 0;
 }
 
-.history {
-    padding-top: 30px;
-}
 .history_header {
     display: flex;
     justify-content: space-between;

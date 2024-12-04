@@ -10,7 +10,7 @@
 {% block content %}
     <!-- <header>
         <div class="header_position"> -->
-            <div class="status_bar">
+            <div class="jekpot_status_bar">
                 <a href="{% url 'users:games' %}" class="no_hook">
                     <div class="back_button">
                         <svg width="10" height="8" viewBox="0 0 10 8" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -21,7 +21,7 @@
                 </a>
                 <!-- <a href="/" class="no_hook" onclick="show()"> -->
                     <div class="create_game">
-                        <p>Окончание: <span>{{jackpot.moscow_endtime | date:'H:i d.m.Y'}}</span></p>
+                        <p id="some_id">Окончание: <span>{{jackpot.moscow_endtime | date:'H:i d.m.Y'}}</span></p>
                     </div>
                 <!-- </a> -->
             </div>
@@ -30,7 +30,7 @@
     <div class="position_class">
         <div class="background_games">
             <div class="background_list">
-                <div class="games_list">
+                <div class="jekpot_games_list">
                     <div class="type_game auction_content">
                         <div class="auction_content_about">
                             <p class="title_type_game">Джекпот №1</p>
@@ -201,7 +201,7 @@
                     </div>
                     <div class="footer_game">
                         <a style='cursor: pointer;' class="no_hook" onclick="userBet()">
-                            <div class="create_game_auction">
+                            <div style="color: white;" class="create_game_auction">
                                 Сделать ставку
                             </div>
                         </a>
