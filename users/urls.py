@@ -1,6 +1,6 @@
 from django.urls import path
 
-from .views import login_view, games_view, profile_view, top_users_view
+from .views import login_view, games_view, profile_view, top_users_view, settings_view
 app_name = 'auction'
 
 urlpatterns = [
@@ -8,4 +8,5 @@ urlpatterns = [
     path('games/', games_view, name='games'),
     path('profile/', profile_view, name='profile'),
     path('top/', top_users_view, name='top'),
+    path('settings/', settings_view, name='settings'),
 ]

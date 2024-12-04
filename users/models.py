@@ -53,7 +53,7 @@ class User(AbstractBaseUser, PermissionsMixin):
     image = models.ImageField(
         verbose_name='аватар пользователя',
         upload_to='users_images',
-        null=True, blank=True
+        blank=True, default='users_images/avatar.jpg'
     )
     register_time = models.DateTimeField(
         verbose_name='Дата регистрации',

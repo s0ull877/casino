@@ -1,0 +1,260 @@
+{% extends "users/base.html" %}
+{% load static %}
+
+{% block css %}
+    <link rel="stylesheet" href="{% static 'casino/assets/tiktatok_game.css' %}">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+{% endblock css %}
+
+{% block content %}
+    <style>
+        {% if game.format == '3' %}
+            .custom-radio {
+                border-radius: 6px;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                width: 104px;
+                height: 104px;
+                cursor: pointer;
+                background-color: #90b0ff12;
+            }
+            .tiktok-game {
+
+                padding-top: 15px;
+                
+                display: flex;
+                
+                flex-wrap: wrap;
+                
+                gap: 14px;
+
+                margin: 0 auto;
+                
+            }
+        {% elif  game.format == '5' %}
+            .custom-radio {
+                border-radius: 6px;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                width: 61.5px;
+                height: 61.5px;
+                cursor: pointer;
+                background-color: #90b0ff12;
+            }
+            .tiktok-game {
+                padding-top: 15px;
+                display: flex;
+                flex-wrap: wrap;
+                margin: 0 auto;
+                gap: 8px;
+            }
+        {% else %}
+            .tiktok-game {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                align-content: center;
+                padding-top: 15px;
+                display: flex;
+                flex-wrap: wrap;
+                margin: 0 auto;
+                gap: 8px;
+            }
+            .custom-radio {
+                border-radius: 6px;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                width: 41.5px;
+                height: 41.5px;
+                cursor: pointer;
+                background-color: #90b0ff12;
+            }
+        {% endif %}
+    </style>
+    <div class="header_position">
+        <div class="status_bar">
+            <a href="{% url 'tictactoes:index' %}" class="no_hook">
+                <div class="back_button">
+                    <svg width="10" height="8" viewBox="0 0 10 8" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M-1.74847e-07 3.99998L3.79169 7.76571C3.86648 7.83999 3.95527 7.89891 4.05298 7.93911C4.1507 7.97931 4.25544 8 4.36121 8C4.46697 8 4.57171 7.97931 4.66943 7.93911C4.76714 7.89891 4.85593 7.83999 4.93072 7.76571C5.00551 7.69143 5.06484 7.60325 5.10532 7.5062C5.14579 7.40915 5.16663 7.30514 5.16663 7.20009C5.16663 7.09505 5.14579 6.99103 5.10532 6.89398C5.06484 6.79693 5.00551 6.70875 4.93072 6.63447L3.08361 4.8L9.19446 4.8C9.4081 4.8 9.61299 4.71571 9.76406 4.56568C9.91513 4.41565 10 4.21216 10 3.99997C10 3.78779 9.91513 3.5843 9.76406 3.43427C9.61299 3.28423 9.4081 3.19995 9.19446 3.19995L3.08361 3.19995L4.93072 1.36548C5.00579 1.29135 5.06536 1.20322 5.10601 1.10615C5.14665 1.00908 5.16758 0.904989 5.16758 0.799858C5.16758 0.694728 5.14665 0.590635 5.10601 0.493565C5.06536 0.396495 5.00579 0.308362 4.93072 0.234237C4.77966 0.084255 4.57481 2.76866e-07 4.3612 2.86203e-07C4.1476 2.9554e-07 3.94275 0.084255 3.79169 0.234237L-1.74847e-07 3.99998Z" fill="#707385"/>
+                    </svg>            
+                    <p>Крестики-нолики {{game.format}}х{{game.format}}</p>
+                </div>
+            </a>
+            <div class="create_game">
+                <p><span id="move-time">Ожидание соперника</span><span id="progressbar1-time"></span></p>
+            </div>
+        </div>
+    </div>
+    <div class="wait-line-position">
+        <div id="progressbar1" class="wait-line"></div>
+    </div>
+    <div class="position_class">
+        <div class="background_games">
+            <div class="opponent">
+                {% if user == game.first_player %}
+                    <div class="state_auction">
+                        <img id="oponent-image" 
+                        src="{% if game.second_player %}{{game.second_player.image.url}}{% else %}{% static 'casino/assets/img/avatar.jpg' %}{% endif %}" 
+                        alt="oponent-image">
+                        <div class="user-state">
+                            <p class="state_auction_content">@<span id="oponent-nickname">{{game.second_player.nickname}}</span></p>
+                            <p class="rate">Ваш опонент</p>
+                        </div>
+                    </div>
+                    <div class="type-gamer">
+                        <img id="first-player" class="my-move" style="display: none;"src="{% static 'casino/assets/img/cross.png' %}" alt="main-auction-photo">
+                        <img id="second-player" class="opponent-move" src="{% static 'casino/assets/img/zero.png' %}" alt="main-auction-photo">
+                    </div>
+                {% else %}
+                    <div class="state_auction">
+                        <img id="oponent-image" src="{{game.first_player.image.url}}" alt="oponent-image">
+                        <div class="user-state">
+                            <p  class="state_auction_content">@<span id="oponent-nickname">{{game.first_player.nickname}}</span></p>
+                            <p class="rate">Ваш опонент</p>
+                        </div>
+                    </div>
+                    <div class="type-gamer">
+                        <img id="first-player" class="opponent-move"src="{% static 'casino/assets/img/cross.png' %}" alt="main-auction-photo">
+                        <img id="second-player" class="my-move" style="display: none;"src="{% static 'casino/assets/img/zero.png' %}" alt="main-auction-photo">
+                    </div>
+                {% endif %}
+            </div>
+            <div class="auction_list">
+                <div id="map" class="tiktok-game">
+                    
+                </div>
+            </div>
+            
+            
+            <div class="status_game">
+                <div class="status_game_title">
+                    <p>Ставка</p>
+                    <span>${{game.bet}}</span>
+                </div>
+                <button id="submit" onclick="UpdateMap()" class="status_game_button" disabled>
+                    Сделать ход
+                </button>
+            </div>
+        </div>
+    </div>
+    <script>
+
+        window.g_inteval = null
+
+        function progressBar(last, total, player) {
+
+            let currentLast = last;
+            let currentTotal = total;
+            let currentPlayer = player
+
+            g_inteval = setInterval(function() {
+                
+                currentLast -= 1;
+                document.getElementById('progressbar1').style.width = `${(100 * currentLast) / currentTotal}%`;
+                document.getElementById('progressbar1-time').innerHTML = `${Math.floor(currentLast%currentTotal /60)}:${currentLast%60 < 10 ? '0' : ''}${currentLast%60}`;
+
+                if (currentLast == 0) {
+                    clearInterval(g_inteval)
+                    {% comment %} ws.send('over') {% endcomment %}
+                }
+
+            }, 1000)
+            
+        }
+
+        let ws = new WebSocket('ws://localhost:8000/ws/game/{{game.group_name}}/');
+
+        ws.onmessage = function(event) {
+
+            let data = JSON.parse(event.data);;
+
+            switch (data.event) {
+                case 'start':
+                    document.getElementById('oponent-nickname').innerHTML = data.oponent
+                    document.getElementById('oponent-image').src = data.oponent_image
+                    if (document.querySelector('.my-move').id == data.move) {
+                        document.getElementById('submit').disabled = false;
+                        document.getElementById('move-time').innerHTML = 'Ваш ход: ';
+                    } else {
+                        document.getElementById('move-time').innerHTML = 'Ход опонента: ';
+                    }
+                    progressBar(60, 60, data.move)
+
+                case 'update_map':
+                    writeMap(data.map)
+                    if (document.querySelector('.my-move').id == data.move) {
+                        document.getElementById('submit').disabled = false;
+                        document.getElementById('move-time').innerHTML = 'Ваш ход: ';
+                    } else {
+                        document.getElementById('move-time').innerHTML = 'Ход опонента: ';
+                    }
+                    if (g_inteval) {
+                        clearInterval(g_inteval)
+                    }
+
+                    progressBar(data.seconds, 60, data.move)
+                    break;
+
+                case 'winner':
+                    writeMap(data.map)
+                    clearInterval(g_inteval)
+                    result = document.getElementById('submit')
+                    result.disabled = true
+                    result.style.opacity = '1'
+                    console.log(document.getElementById("oponent-nickname").innerText, data.winner)
+                    if (document.getElementById("oponent-nickname").innerText == data.winner) {
+                        result.innerHTML = 'Вы проиграли!'
+                    } else {
+                        result.innerHTML = 'Вы победили!'
+                    }
+                    ws.close()
+
+            };
+
+        };
+
+        function UpdateMap() {
+            
+            let place = document.querySelector('input[type="radio"]:checked')
+            if (place) {
+                document.getElementById('submit').disabled = true;
+                place.cheked = false;
+                place.disabled = true;
+                ws.send(`${document.querySelector('.my-move').id}/${place.id}`);
+            }
+        }
+
+        function writeMap(map) {
+
+            let map_div = document.getElementById('map');
+            inner = ''
+            for (let row = 0; row < map.length; row++) {
+                
+                for (let column = 0; column < map[row].length; column++) {
+                    console.log(map[row][column]);
+                    
+                    if (map[row][column] == 1) {
+                        let move = document.getElementById('first-player');
+                        src = {% if game.format == '3' %} move.src.replace('.png', 'big.png') {% else %} move.src {% endif %}
+                        inner+= `<input type="radio" id="${row}${column}" name="move" disabled /><label class="custom-radio" for="${row}${column}"><img src=${src} alt=${move.id}></label>`;
+                    } else if (map[row][column] == 2) {
+                        let move = document.getElementById('second-player');
+                        src = {% if game.format == '3' %} move.src.replace('.png', 'big.png') {% else %} move.src {% endif %}
+                        inner+=`<input type="radio" id="${row}${column}" name="move" disabled /><label class="custom-radio" for="${row}${column}"><img src=${src} alt=${move.id}></label>`;
+                    } else {
+                        inner+=`<input type="radio" id="${row}${column}" name="move" /><label class="custom-radio" for="${row}${column}"></label>`;
+                    }
+                
+                }
+            }
+            map_div.innerHTML = inner;
+
+        }
+
+        writeMap({{game.clean_map}})
+    </script>
+{% endblock content %}

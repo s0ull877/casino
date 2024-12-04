@@ -1,0 +1,36 @@
+body {
+    color: black;
+    background-color: #EFF0F3;
+}
+
+.background_games {
+    border-top: 1px solid #DADBE2;
+}
+
+.title_type_game {
+    color: black;
+}
+
+.about_type_game {
+    color: rgba(0, 0, 0, 0.800);
+}
+
+.keyboard, .menu_items {
+    background-color: #EFF0F3;
+}
+
+.balance_content {
+    background-color: #fff;
+}
+
+.date_content, .state_balance_content {
+    color: #707385;
+}
+
+.title_type_game_content, .sum {
+    color: black;
+}
+
+.resend_link {
+    color: #3F98FF;
+}

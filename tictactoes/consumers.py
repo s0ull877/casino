@@ -77,8 +77,8 @@ class GameConsumer(WebsocketConsumer):
 
             cache.set(f'game_{self.group_name}', now())
             try:
-                self.game.first_player.wallet.transaction(Decimal(-5),'❌ Крестики-нолики', f'Участие #{self.game.id}')
-                self.game.second_player.wallet.transaction(Decimal(-5), '❌ Крестики-нолики', f'Участие #{self.game.id}')
+                self.game.first_player.wallet.transaction(self.game.bet * -1,'❌ Крестики-нолики', f'Участие #{self.game.id}')
+                self.game.second_player.wallet.transaction(self.game.bet * -1, '❌ Крестики-нолики', f'Участие #{self.game.id}')
             except ValidationError:
                 # some_code
                 ...
@@ -114,7 +114,8 @@ class GameConsumer(WebsocketConsumer):
         context ={
             'event': 'start',
             'move': 'first-player',
-            'oponent':  self.game.second_player.nickname if self.user == self.game.first_player else self.game.first_player.nickname
+            'oponent':  self.game.second_player.nickname if self.user == self.game.first_player else self.game.first_player.nickname,
+            'oponent_image':  self.game.second_player.image.url if self.user == self.game.first_player else self.game.first_player.image.url,
         }
         self.send(json.dumps(context))
 
@@ -127,7 +128,7 @@ class GameConsumer(WebsocketConsumer):
 
         winner = self.game.get_winner(map)
         if winner:
-            winner.wallet.transaction(Decimal(10),'❌ Крестики-нолики', f'Победа #{self.game.id}')
+            winner.wallet.transaction(self.game.bet * 2,'❌ Крестики-нолики', f'Победа #{self.game.id}')
             event = {
                 'type': 'update_map_handler',
                 'map': map,

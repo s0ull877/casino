@@ -3,7 +3,7 @@
 
 <div id="user-{{member.id}}" class="user-card">
     <div class="user-photo">
-        <img src="{% if member.image %}{{member.image.url}}{% else %}{% static 'casino/assets/img/avatar.jpg' %}{% endif %}" alt="user-image">
+        <img src="{{member.image.url}}" alt="user-image">
     </div>
     <div class="user-info">
         <p class="user-title">@{{member.nickname}}</p>

@@ -1,11 +1,13 @@
 import datetime
 from django.shortcuts import render
 from django.utils.timezone import now
+from django.contrib.auth.decorators import login_required
 
 from .models import Jackpots, JackpotBet
 
 from .tasks import update_jackpot
 
+@login_required
 def jackpot_view(request): 
 
     jackpot = Jackpots.objects.filter(active=True)

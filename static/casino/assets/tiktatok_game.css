@@ -31,7 +31,6 @@ body {
 .status_bar span {
     background: linear-gradient(#2C8EFF, #005AC0) ;
     background-clip: text;
-    -webkit-text-fill-color: transparent;
 }
 
 .background_games {
@@ -485,87 +484,9 @@ footer {
 input[type="radio"] {
     display: none;
 }
-/* 
-.custom-radio {
-    width: 52px;
-    height: 33px;
-    border-radius: 4px;
-    position: relative;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    cursor: pointer;
-    transition: border-color 0.3s;
-    color: #707385;
-}
 
-.custom-radio::after {
-    width: 10px;
-    height: 10px;
-    background-color: transparent;
-    border-radius: 50%;
-    position: absolute;
-    top: 25%;
-    left: 25%;
-}
-
-input[type="radio"]:checked + .custom-radio {
-    background-color: #0A0910;
-    border-color: #0A0910;
-    border-radius: 6px;
-    color: white;
-}
-
-input[type="radio"]:checked + .custom-radio::after {
-    background-color: #0A0910;
-}
-.position_radio {
-    display: flex;
-    justify-content: center; 
-}
-
-input[type="number"]::placeholder {
-    color: #707385;
-}
-input[type="number"] {
-    border: 1px solid #181424;
-    border-radius: 3px;
-    -webkit-border-radius: 3px;
-    -moz-border-radius: 3px;
-    -khtml-border-radius: 3px;
-    background: #0A0910 !important;
-    outline: none;
-    height: 41px;
-    width: 320px;
-    color: #ffffff;
-    padding-left: 15px;
-    font-size: 16px;
-    border: 1px solid #181424
-}
-
-input[type="number"]:focus {
-    color: #ffffff;
-  }
-.input_sum {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-input::-webkit-outer-spin-button,
-input::-webkit-inner-spin-button {
-    -webkit-appearance: none;
-} */
-
-
-.custom-radio {
-    border-radius: 6px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 104px;
-    height: 104px;
-    cursor: pointer;
-    background-color: #90b0ff12;
+input[type="radio"]:disabled + .custom-radio {
+    background: radial-gradient(50% 50%, #3F1082, #90b0ff12);
 }
 
 input[type="radio"]:checked + .custom-radio {
@@ -578,7 +499,7 @@ input[type="radio"]:checked + .custom-radio {
 .custom-radio img {
     display: none; 
 }
-input[type="radio"]:checked + .custom-radio img {
+input[type="radio"]:disabled + .custom-radio img {
     display: block;
 }
 
@@ -618,12 +539,6 @@ input[type="radio"]:checked + .custom-radio img {
 .wait-line-position {
     padding-bottom: 10px;
 }
-.tiktok-game {
-    padding-top: 15px;
-    display: flex;
-    flex-wrap: wrap;
-    gap: 14px;
-}
 .pie {
     background-color: white;
     width: 104px;
@@ -640,6 +555,7 @@ input[type="radio"]:checked + .custom-radio img {
     color: white;
     font-size: 16px;
 }
+
 .status_game_button {
     font-size: 16px;
     background: linear-gradient(#2C8EFF, #005AC0) ;
@@ -647,4 +563,20 @@ input[type="radio"]:checked + .custom-radio img {
     text-align: center;
     padding: 15px;
     border-radius: 8px;
+    display: block;
+    width: 100%;
+    border: none;
+}
+
+#submit:disabled {
+    opacity: 0.7;
+    font-size: 16px;
+    background: linear-gradient(#2C8EFF, #005AC0) ;
+    color: white;
+    text-align: center;
+    padding: 15px;
+    border-radius: 8px;
+    display: block;
+    width: 100%;
+    border: none;
 }

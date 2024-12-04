@@ -1,3 +1,4 @@
+from datetime import timedelta
 import random
 from django.db import models
 import pytz
@@ -39,7 +40,6 @@ class Jackpots(models.Model):
     def moscow_endtime(self):
 
         return self.end_time.astimezone(pytz.timezone('Europe/Moscow'))
-    
     def set_winner(self):
 
         bets = self.bets.order_by('-deposit')

@@ -6,6 +6,7 @@ from django.contrib.auth.decorators import login_required
 from .models import Auction
 from .forms import AuctionCreateForm
 
+@login_required
 def auctions_view(request):
 
     auctions = [auction.display_json() for auction in Auction.objects.filter(active=True).exclude(owner=None)]
@@ -38,16 +39,6 @@ def diamond_auction_view(request):
         raise Http404()
 
     return render(request, 'auctions/auction_game.html', context={'auction': auction})
-
-
-def auction_over_view(request, group_name):
-
-    try:
-        auction = Auction.objects.prefetch_related('bets').get(group_name=group_name)
-    except Auction.DoesNotExist:
-        auction = None
-
-    return render(request, 'auctions/auction_over.html', context={'auction': auction})
 
 
 @login_required
