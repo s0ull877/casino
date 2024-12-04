@@ -1,0 +1,361 @@
+/* @font-face {
+    font-family: 'Manrope', sans-serif;
+    src: url('fonts/Manrope-SemiBold');
+} */
+
+
+body {
+    font-family: 'Manrope';
+    margin: 0;
+    padding: 0;
+    background-color: #030306;
+    color: white;
+}
+
+/* 
+.status_bar svg{
+    padding: 15px;
+} */
+
+.status_bar {
+    padding: 15px;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 14px;
+    font-weight: 600;
+    display: flex;
+}
+
+.status_bar span {
+    background: linear-gradient(#2C8EFF, #005AC0) ;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.background_games {
+    padding: 10px 25px 25px 25px;
+    border-top: 1px solid #0A0910;
+    /* border-bottom: 1px solid #0A0910; */
+    margin-top: -35px;
+}
+
+.background_games {
+    font-size: 12px;
+    color: #707385;
+}
+
+.background_list {
+    padding-top: 5%;
+    /* display: flex; */
+    flex-direction: column;
+    justify-content: center;
+    align-content: center;
+    gap: 100px;
+    align-items: center;
+}
+
+.games_list {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.balance_content {
+    background-color: #0A0A13;
+}
+
+.aukcion {
+    background-image: url('../assets/img/aukcion.svg');
+}
+
+.crestikinoloko {
+    background-image: url('../assets/img/crestiki-noloko.svg');
+}
+
+.players {
+    max-width: 334px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #0A0A13;
+    box-shadow: inset 0px 1px 4px rgba(255, 255, 255, 0.033);
+}
+
+.players svg{
+    padding-right: 12px;
+}
+
+.type_game {
+    /* background-image: url('../assets/img/Frame\ 187.svg'); */
+    background-repeat: no-repeat;
+    border-radius: 8px;
+    padding: 3px;
+}
+
+.type_game p{
+    padding-left: 15px;
+}
+
+.title_type_game {
+    color: white;
+    font-size: 16px;
+    margin-top: 8px;
+    margin-bottom: 0;
+}
+
+.about_type_game {
+    color: rgba(255, 255, 255, 0.713);
+    font-size: 12px;
+}
+
+.menu_items {
+    /* box-shadow: 0 2px 4px rgba(235, 238, 23, 0.3),
+              0 6px 10px rgba(0, 0, 0, 0.1); */
+    border-radius: 8px;
+    padding: 15px 45px 15px 45px;
+    gap: 10px;
+    display: flex;
+    justify-content: center;
+    background-color: #06070D;
+    backdrop-filter: blur(25px);
+    max-width: 42%;
+}
+
+.center_items {
+    bottom: 0;
+    display: flex;
+    justify-content: center;
+}
+
+.keyboard {
+    max-height: 21px;
+    border-radius: 8px;
+    padding: 12px;
+    background-color: #090a10;
+}
+/* .position_class {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+} */
+
+.games {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(#2C8EFF, #005AC0) ;
+    box-shadow:0px -6px 15px #3f99ff5a;
+}
+
+.bottom_bar {
+    position: fixed;
+    bottom: 14.5px;
+    color: white;
+    z-index: 1000;
+}
+
+.bottom_bar_position {
+    display: flex;
+    justify-content: center;
+}
+.balance_content {
+    display: flex;
+    align-items: center;
+}
+.photo_content {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    /* background-color: #191922; */
+}
+.photo_content svg {
+    background-color: #191922;
+    border-radius: 100%;
+}
+.date_content {
+    margin-top: 6px;
+    color: grey;
+    font-size: 12px;
+}
+
+.state_balance{
+    padding-top: 15px;
+}
+.state_balance_content {
+    color: grey;
+    margin-bottom: -7px;
+}
+.title_type_game_content {
+    color: white;
+    font-size: 16px;
+}
+.button_list {
+    padding-top: 10px;
+    display: flex;
+    justify-content: space-around;
+}
+a.no_hook:active,
+a.no_hook:hover,
+a.no_hook {
+    color: white;
+    text-decoration: none;
+}
+
+.button_text {
+    margin-top: 5px;
+    margin-bottom: 5px;
+    padding-right: 8px;
+    font-size: 16px;
+    color: white;
+}
+
+.send {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    border-radius: 8px;
+    width: 163px;
+    background: linear-gradient(#2C8EFF, #005AC0);
+    padding: 10px 0 10px 0;
+}
+.resend {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    border-radius: 8px;
+    width: 163px;
+    background-color: #0A0A13;
+    /* background: linear-gradient(#2C8EFF, #005AC0); */
+    padding: 10px 0 10px 0;
+}
+
+.history {
+    padding-top: 30px;
+}
+.history_header {
+    display: flex;
+    justify-content: space-between;
+}
+.full_history {
+    cursor: pointer;
+    color: white;
+}
+.history_list {
+    display: flex;
+    flex-direction: column;
+}
+.elemnt {
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+.history_elemnt {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-radius: 8px;
+    background-color: #0A0A13;
+    padding: 5px 10px 5px 20px;
+}
+/* .history_text {
+
+} */
+.sum {
+    color: white;
+    font-size: 16px;
+}
+.up {
+    color: #3F98FF;
+}
+.down {
+    color: #FF3F3F;
+}
+.history_type {
+    border-radius: 100%;
+    padding: 15px 18px 15px 18px;
+    background-color: #90b0ff0b;
+}
+.hidden {
+    display: none;
+}
+.games_list_owner {
+    padding-top: 5px;
+}
+.games_content {
+    display: flex;
+    justify-content: space-between;
+    padding-bottom: 25px;
+}
+.games_content_title {
+    font-size: 16px;
+    color: white;
+}
+.result_game {
+    font-size: 16px;
+    color: white;
+}
+.win {
+    color: #3F98FF;
+}
+.loose {
+    color: #FF3F3F;
+}
+.games_history {
+    display: flex;
+    flex-direction: column;
+}
+footer {
+    padding-top: 80px;
+}
+.settings-select {
+    font-size: 16px;
+    color: white;
+    padding-top: 20px;
+    /* display: flex; */
+}
+.theme {
+    padding: 10px;
+    border-radius: 8px;
+    display: flex;
+    justify-content: space-between;
+    cursor: pointer;
+}
+.theme-background {
+    border-radius: 8px;
+    background-color: #0A0A13;
+    margin-bottom: 15px;
+}
+.lang-background {
+    border-radius: 8px;
+    background-color: #0A0A13;
+}
+.lang {
+    padding: 10px;
+    border-radius: 8px;
+    display: flex;
+    justify-content: space-between;
+    cursor: pointer;
+}
+.dop-menu-theme p{
+    color: rgba(255, 255, 255, 0.522);
+    padding-right: 15px;
+    margin-top: 0;
+    text-align: right;
+}
+.dop-menu-theme {
+    display: none;
+    padding-bottom: 15px;
+}
+.dop-menu-lang p{
+    color: rgba(255, 255, 255, 0.522);
+    padding-right: 15px;
+    margin-top: 0;
+    text-align: right;
+}
+
+.dop-menu-lang {
+    display: none;
+    padding-bottom: 15px;
+
+}

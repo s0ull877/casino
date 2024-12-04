@@ -16,69 +16,6 @@ body {
     padding: 15px;
 } */
 
-#container {
-    position: relative;
-    width: 300px;
-    height: 310px;
-    margin: auto; /* Центрируем контейнер на странице */
-}
-canvas {
-    position: relative;
-    top: 0;
-    left: 0;
-}
-.canvas-label {
-    position: absolute;
-    width: 275px;
-    height: 275px;
-    border-radius: 50%;
-    background-color: rgb(3, 3, 6);
-    z-index: 999;
-    top: 238px;
-    margin-left: auto;
-    margin-right: auto;
-    left: 0;
-    right: 0;
-    text-align: center;
-    /* right: 0; bottom: 0; */
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-}
-.toggle {
-    position: absolute;
-    width: 8px;
-    height: 20px;
-    background-color: white;
-    z-index: 1000;
-    border-radius: 25%;
-    margin-left: auto;
-    margin-right: auto;
-    left: 0;
-    right: 0;
-    text-align: center;
-    top: 225px;
-}
-.wrap {
-    padding: 15px 0 0;
-}
-
-#winner-jackpot {
-    display: none;
-}
-
-.dot {
-    position: relative;
-    width: 10px;
-    height: 10px;
-    background-color: red;
-    margin: 0;
-    border-radius: 50%;
-    top: 10px;
-    left: 40px;
-}
-
 .status_bar {
     padding: 5px 15px 5px 15px;
     justify-content: space-between;
@@ -116,46 +53,22 @@ canvas {
     align-items: center;
 }
 
+
 .games_list {
+    padding-top: 25px;
+    padding-bottom: 25px;
     display: flex;
     flex-direction: column;
+    gap: 15px;
 }
 
-.baraban {
-    padding-top: 15px;
-
-}
-
-
-.get_bet {
-    padding-top: 15px;
-}
-
-.input_text p {
-    padding-left: 15px;
-}
-
-.games_list {
-    border-radius: 8px;
-    padding: 3px;
-    /* max-height: 90px; */
+.auction_content {
+    max-height: 85px;
     /* background: linear-gradient(143deg, rgba(0,0,0,1) 26%, rgba(44,28,1,1) 48%, rgba(27,21,4,1) 54%, rgba(22,15,2,1) 58%, rgba(99,68,9,1) 100%); */
     /* background-image: url(../assets/img/background_offical.svg); */
-    background: linear-gradient(130deg, #0a0a13 26%, #171a2e 48%, #2a3aa2 90%, #22294b 170%, rgb(40 32 24) 58%, rgb(39 32 24) 100%);
-
-}
-.auction_content {
-    max-height: 85px;
-}
-
-/* 
-.auction_content {
-    max-height: 85px;
-    /* background: linear-gradient(143deg, rgba(0,0,0,1) 26%, rgba(44,28,1,1) 48%, rgba(27,21,4,1) 54%, rgba(22,15,2,1) 58%, rgba(99,68,9,1) 100%); */
-    /* background-image: url(../assets/img/background_offical.svg);
     background: linear-gradient(130deg, #0a0a13 26%, #171a2e 48%, #2a3aa2 90%, #22294b 170%, rgb(40 32 24) 58%, rgb(39 32 24) 100%)
 
-} */
+}
 
 .aukcion {
     background-image: url('../assets/img/aukcion.svg');
@@ -205,7 +118,7 @@ canvas {
     /* box-shadow: 0 2px 4px rgba(235, 238, 23, 0.3),
               0 6px 10px rgba(0, 0, 0, 0.1); */
     border-radius: 8px;
-    padding: 15px;
+    padding: 15px 45px 15px 45px;
     gap: 10px;
     display: flex;
     justify-content: center;
@@ -225,14 +138,15 @@ canvas {
     padding: 12px;
     background-color: #090a10;
 }
-.position_class {
-    padding-top: 25px;
-}
 /* .position_class {
     display: flex;
     flex-direction: column;
     align-items: center;
 } */
+
+header {
+    padding-bottom: 25px;
+}
 
 .games {
     display: flex;
@@ -364,8 +278,6 @@ a.no_hook {
     color: white;
 }
 .auction_list {
-    padding-left: 20px;
-    padding-right: 20px;
     display: flex;
     flex-direction: column;
 }
@@ -617,10 +529,10 @@ input[type="radio"]:checked + .custom-radio::after {
     justify-content: center; 
 }
 
-input[type="number"]::placeholder {
+input[type="password"]::placeholder {
     color: #707385;
 }
-input[type="number"] {
+input[type="password"] {
     border: 1px solid #181424;
     border-radius: 3px;
     -webkit-border-radius: 3px;
@@ -636,14 +548,14 @@ input[type="number"] {
     border: 1px solid #181424
 }
 
-input[type="number"]:focus {
+input[type="password"]:focus {
     color: #ffffff;
   }
 .input_sum {
     display: flex;
     align-items: center;
     justify-content: center;
-    padding-bottom: 15px;
+    padding-bottom: 25px;
 }
 input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
@@ -655,13 +567,22 @@ input::-webkit-inner-spin-button {
     justify-content: center;
     padding-bottom: 25px;
 }
+
+.footer_game button {
+    padding: 0;
+    border: none;
+    color: white;
+    border-radius: 8px;
+}
+
 .create_game_auction {
+    font-size: 16px;
     border-radius: 8px;
     display: flex;
     align-items: center;
     text-align: center;
     justify-content: center;
-    width: 339px;
+    width: 320px;
     height: 45px;
     background: rgb(0,90,192);
     background: linear-gradient(0deg, rgba(0,90,192,1) 0%, rgba(44,142,255,1) 100%);
@@ -735,13 +656,4 @@ input::-webkit-inner-spin-button {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-}
-.change_win {
-    display: flex;
-    padding: 0 15px 15px 15px;
-}
-
-.box {
-    height: 6px;
-    border-radius: 56px;
 }

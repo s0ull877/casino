@@ -25,6 +25,7 @@ urlpatterns = [
     path('auctions/', include('auction.urls', namespace='auctions')),
     path('', include('users.urls', namespace='users')),
     path('tictactoe/', include('tictactoes.urls', namespace='tictactoes')),
+    path('jackpot/', include('jackpots.urls', namespace='jackpots')),
     path('bot-endpoint/', include('bot_endpoints.urls', namespace='bot_endpoints')),
 ]
 

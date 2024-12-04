@@ -1,3 +1,6 @@
 from django.contrib import admin
 
-# Register your models here.
+from .models import Jackpots, JackpotBet
+
+admin.site.register(Jackpots)
+admin.site.register(JackpotBet)

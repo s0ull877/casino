@@ -76,6 +76,10 @@ class TicTacToe(models.Model):
 
         self.map = json.dumps({'map': map})
 
+    @property
+    def players(self):
+        return [self.first_player, self.second_player]
+
     
     def map_is_full(self):
 
@@ -130,11 +134,9 @@ class TicTacToe(models.Model):
         self.save()
         return self.winner
             
-        
-
 
     @classmethod
-    def create_map(cls, digit):
+    def create_map(cls, digit: int):
 
         map = []
         for row in range(0, digit):

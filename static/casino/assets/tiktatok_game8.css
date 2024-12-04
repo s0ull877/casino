@@ -16,69 +16,6 @@ body {
     padding: 15px;
 } */
 
-#container {
-    position: relative;
-    width: 300px;
-    height: 310px;
-    margin: auto; /* Центрируем контейнер на странице */
-}
-canvas {
-    position: relative;
-    top: 0;
-    left: 0;
-}
-.canvas-label {
-    position: absolute;
-    width: 275px;
-    height: 275px;
-    border-radius: 50%;
-    background-color: rgb(3, 3, 6);
-    z-index: 999;
-    top: 238px;
-    margin-left: auto;
-    margin-right: auto;
-    left: 0;
-    right: 0;
-    text-align: center;
-    /* right: 0; bottom: 0; */
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-}
-.toggle {
-    position: absolute;
-    width: 8px;
-    height: 20px;
-    background-color: white;
-    z-index: 1000;
-    border-radius: 25%;
-    margin-left: auto;
-    margin-right: auto;
-    left: 0;
-    right: 0;
-    text-align: center;
-    top: 225px;
-}
-.wrap {
-    padding: 15px 0 0;
-}
-
-#winner-jackpot {
-    display: none;
-}
-
-.dot {
-    position: relative;
-    width: 10px;
-    height: 10px;
-    background-color: red;
-    margin: 0;
-    border-radius: 50%;
-    top: 10px;
-    left: 40px;
-}
-
 .status_bar {
     padding: 5px 15px 5px 15px;
     justify-content: space-between;
@@ -87,17 +24,18 @@ canvas {
     font-weight: 600;
     display: flex;
     background: rgb(0,0,0);
-    background: linear-gradient(130deg, #0a0a13 26%, #171a2e 48%, #2a3aa2 90%, #22294b 170%, rgb(40 32 24) 58%, rgb(39 32 24) 100%)
+    background: linear-gradient(130deg, rgb(0 0 0) 26%, #1b0727 48%, #701BA0 100%, #000000 58%, rgb(39 32 24) 100%)
     /* background: linear-gradient(143deg, rgba(0,0,0,1) 26%, rgba(44,28,1,1) 48%, rgba(27,21,4,1) 54%, rgba(22,15,2,1) 58%, rgba(99,68,9,1) 100%); */
 }
 
 .status_bar span {
-    /* background: linear-gradient(#2C8EFF, #005AC0) ; */
+    background: linear-gradient(#2C8EFF, #005AC0) ;
     background-clip: text;
+    -webkit-text-fill-color: transparent;
 }
 
 .background_games {
-    padding: 10px 25px 25px 25px;
+    padding: 0px 25px 25px 25px;
     border-top: 1px solid #0A0910;
     /* border-bottom: 1px solid #0A0910; */
 }
@@ -119,43 +57,16 @@ canvas {
 .games_list {
     display: flex;
     flex-direction: column;
+    gap: 15px;
 }
 
-.baraban {
-    padding-top: 15px;
-
-}
-
-
-.get_bet {
-    padding-top: 15px;
-}
-
-.input_text p {
-    padding-left: 15px;
-}
-
-.games_list {
-    border-radius: 8px;
-    padding: 3px;
-    /* max-height: 90px; */
+.auction_content {
+    max-height: 85px;
     /* background: linear-gradient(143deg, rgba(0,0,0,1) 26%, rgba(44,28,1,1) 48%, rgba(27,21,4,1) 54%, rgba(22,15,2,1) 58%, rgba(99,68,9,1) 100%); */
     /* background-image: url(../assets/img/background_offical.svg); */
-    background: linear-gradient(130deg, #0a0a13 26%, #171a2e 48%, #2a3aa2 90%, #22294b 170%, rgb(40 32 24) 58%, rgb(39 32 24) 100%);
+    background: linear-gradient(130deg, rgb(0 0 0) 26%, rgb(20 16 20) 48%, rgb(74 56 31) 90%, white 170%, rgb(40 32 24) 58%, rgb(39 32 24) 100%)
 
 }
-.auction_content {
-    max-height: 85px;
-}
-
-/* 
-.auction_content {
-    max-height: 85px;
-    /* background: linear-gradient(143deg, rgba(0,0,0,1) 26%, rgba(44,28,1,1) 48%, rgba(27,21,4,1) 54%, rgba(22,15,2,1) 58%, rgba(99,68,9,1) 100%); */
-    /* background-image: url(../assets/img/background_offical.svg);
-    background: linear-gradient(130deg, #0a0a13 26%, #171a2e 48%, #2a3aa2 90%, #22294b 170%, rgb(40 32 24) 58%, rgb(39 32 24) 100%)
-
-} */
 
 .aukcion {
     background-image: url('../assets/img/aukcion.svg');
@@ -209,7 +120,7 @@ canvas {
     gap: 10px;
     display: flex;
     justify-content: center;
-    background-color: #06070D;
+    /* background-color: #06070D; */
     max-width: 42%;
 }
 
@@ -224,9 +135,6 @@ canvas {
     border-radius: 8px;
     padding: 12px;
     background-color: #090a10;
-}
-.position_class {
-    padding-top: 25px;
 }
 /* .position_class {
     display: flex;
@@ -285,16 +193,22 @@ canvas {
 
 .state_auction{
     display: flex;
-    justify-content: space-between;
-    padding-top: 15px;
+    align-items: center;
+    gap: 15px;
+    /* justify-content: space-between; */
+    padding-top: 8px;
+    padding-bottom: 8px;
 }
 .state_auction_content {
-    font-size: 12px;
+    padding-bottom: 5px;
+    font-size: 16px;
     color: white;
-    margin-bottom: -7px;
+    margin: 0;
 }
 .rate {
-    color: white;
+    font-size: 12px;
+    color: #707385;
+    margin: 0;
 }
 .rate_status {
     display: flex;
@@ -364,8 +278,6 @@ a.no_hook {
     color: white;
 }
 .auction_list {
-    padding-left: 20px;
-    padding-right: 20px;
     display: flex;
     flex-direction: column;
 }
@@ -398,10 +310,8 @@ a.no_hook {
     padding-top: 6px;
     padding-bottom: 6px;
     display: flex;
-    gap: 10px;
-    font-size: 12px;
+    justify-content: space-between;
 }
-
 .auction_information_text span{
     padding-right: 10px;
 }
@@ -423,6 +333,7 @@ a.no_hook {
     margin-top: 0;
 }
 .people_auction span {
+    color: #707385;
     margin-top: 0;
     padding-right: 10px;
 }
@@ -431,9 +342,7 @@ a.no_hook {
 }
 
 .username {
-    padding-top: 12px;
-    padding-bottom: 12px;
-    margin-top: 0;
+    padding-bottom: 5px;
     margin-bottom: 0;
     color: white;
     font-size: 16px;
@@ -488,9 +397,6 @@ footer {
     display: flex;
     align-items: center;
 }
-.back_button span{
-    color: white;
-}
 .back_button svg {
     padding-right: 5px;
 }
@@ -498,9 +404,7 @@ footer {
     display: flex;
     align-items: center;
     z-index: 1;
-}
-.create_game span{
-    color: white;
+    cursor: pointer;
 }
 .offical_title {
     font-size: 12px;
@@ -536,6 +440,9 @@ footer {
     position: fixed;
     /* height: 50%; */
     background-color: rgba(255, 255, 255, 0);
+}
+.number_auction {
+    color: #707385;
 }
 
 .show {
@@ -578,7 +485,7 @@ footer {
 input[type="radio"] {
     display: none;
 }
-
+/* 
 .custom-radio {
     width: 52px;
     height: 33px;
@@ -643,17 +550,69 @@ input[type="number"]:focus {
     display: flex;
     align-items: center;
     justify-content: center;
-    padding-bottom: 15px;
 }
 input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
     -webkit-appearance: none;
+} */
+.auction_list {
+    display: flex;
+    /* justify-content: center; */
+    /* align-items: center; */
+}
+
+.tiktok-game {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    align-content: center;
+}
+
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(8, 1fr); /* 8 колонок одинаковой ширины */
+    grid-template-rows: repeat(8, 1fr); /* 8 строк одинаковой высоты */
+    gap: 5px; 
+    height: 100%;
+}
+
+.grid-item {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.custom-radio {
+    border-radius: 6px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 41.5px;
+    height: 41.5px;
+    cursor: pointer;
+    background-color: #90b0ff12;
+}
+
+input[type="radio"]:checked + .custom-radio {
+    background: radial-gradient(50% 50%, #3F1082, #90b0ff12);
+}
+
+.custom-radio:hover {
+    background-color: #6431ff1c;
+}
+
+.custom-radio img {
+    display: none; 
+}
+
+input[type="radio"]:checked + .custom-radio img {
+    display: block;
 }
 .footer_game {
     display: flex;
     align-items: center;
     justify-content: center;
-    padding-bottom: 25px;
+    height: 80%;
 }
 .create_game_auction {
     border-radius: 8px;
@@ -661,87 +620,55 @@ input::-webkit-inner-spin-button {
     align-items: center;
     text-align: center;
     justify-content: center;
-    width: 339px;
+    width: 320px;
     height: 45px;
     background: rgb(0,90,192);
     background: linear-gradient(0deg, rgba(0,90,192,1) 0%, rgba(44,142,255,1) 100%);
 }
-.people_to_game {
-    background: white;
+.wait-line {
+    height: 6px;
+    background-color: #502C82;
 }
-.leader_title {
-    margin-bottom: 7px;
-    font-size: 24px;
-    color: white;
-}
-.auction_text {
-    width: 100%;
-}
-.leader_info {
-    width: 100%;
-    display: flex;
-    font-size: 16px;
-    padding-bottom: 7px;
-    border-bottom: 1px solid #90b0ff11;
-    padding-bottom: 12px;
-    gap: 10px;
-}
-.sum_leader {
-    color: #E6FF76;
-}
-.username_leader {
-    color: white;
-}
-.all_bank {
-    font-size: 16px;
-    color: #FFC65B;
-}
-.all_bank_info {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-}
-.footer_leader {
-    padding-left: 20px;
-    padding-bottom: 24px;
-    padding-right: 20px;
-}
-.line {
-    border-radius: 4px;
-    border-bottom: 2px solid #FFC65B;
-}
-.user-photo img{
+.state_auction img{
     border-radius: 50%;
-    width: 44px;
-    height: 44px;
+    max-width: 44px;
+    max-height: 44px;
 }
-.user-card {
+.opponent {
     display: flex;
+    justify-content: space-between;
     align-items: center;
-    border-bottom: 1px solid #90b0ff11;
-    gap: 10px;
 }
-.user-title {
-    margin-bottom: 5px;
-    font-size: 16px;
-    color: white;
+.wait-line-position {
+    padding-bottom: 10px;
 }
-.user-range {
-    margin-top: 0px;
-    font-size: 12px;
-    color: #707385;
-}
-.user-info {
+.tiktok-game {
+    padding-top: 15px;
     display: flex;
-    flex-direction: column;
-    align-items: flex-start;
+    flex-wrap: wrap;
+    gap: 8px;
 }
-.change_win {
-    display: flex;
-    padding: 0 15px 15px 15px;
+.pie {
+    background-color: white;
+    width: 104px;
+    height: 104px;
+    border-radius: 6px;
+    background-color: #90b0ff0d;
 }
 
-.box {
-    height: 6px;
-    border-radius: 56px;
+.status_game_title {
+    padding-top: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    color: white;
+    font-size: 16px;
+}
+.status_game_button {
+    font-size: 16px;
+    background: linear-gradient(#2C8EFF, #005AC0) ;
+    color: white;
+    text-align: center;
+    padding: 15px;
+    border-radius: 8px;
 }

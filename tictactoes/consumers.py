@@ -6,13 +6,56 @@ from decimal import Decimal
 from django.forms import ValidationError
 from django.template.loader import render_to_string
 
-from asgiref.sync import async_to_sync
+from asgiref.sync import async_to_sync, sync_to_async
 
-from channels.generic.websocket import WebsocketConsumer, StopConsumer
+from channels.generic.websocket import WebsocketConsumer, StopConsumer, AsyncWebsocketConsumer
 from django.utils.timezone import now
 from django.core.cache import cache
 
 from .models import TicTacToe
+
+class GamesConsumer(AsyncWebsocketConsumer):
+
+    ordering = [1,10]
+
+    async def connect(self):
+        
+        await self.accept()
+
+        await self.send_games()
+
+
+    async def send_games(self):
+        
+        games = await self.get_data()
+        html = ''
+        async for game in games:
+            
+            html += render_to_string(template_name='tictactoes/includes/game_div.html', 
+                                    context={'game': game})
+        
+        await self.send(text_data=json.dumps({
+            'html': html,
+        }))
+
+
+    @sync_to_async
+    def get_data(self):
+        try:
+            games= TicTacToe.objects.select_related('first_player'). \
+                filter(second_player=None, winner=None, bet__range=self.ordering).order_by('-start_time')
+        except TicTacToe.DoesNotExist:
+            games = None
+
+        return games
+        
+
+    async def receive(self, text_data=None, bytes_data=None):
+
+        if text_data:
+            self.ordering = list(map(int, text_data.split('-')))
+
+        await self.send_games()
 
 
 class GameConsumer(WebsocketConsumer):
