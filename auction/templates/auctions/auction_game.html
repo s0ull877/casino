@@ -10,7 +10,7 @@
 {% block content %}
     <!-- <header>
         <div class="header_position"> -->
-            <div class="auction_status_bar">
+            <div class="status_bar auction_status_bar">
                 <a href="{% url 'users:games' %}" class="no_hook">
                     <div class="back_button">
                         <svg width="10" height="8" viewBox="0 0 10 8" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -359,7 +359,7 @@
                     </div>
                     <div id="user-ballance" style="display: none;">{{request.user.wallet.ballance}}</div>
                     <div class="footer_game">
-                        <a style='cursor: pointer;' class="no_hook" onclick="userBet()">
+                        <a style='cursor: pointer; color: white;' class="no_hook" onclick="userBet()">
                             <div class="create_game_auction">
                                 Сделать ставку
                             </div>

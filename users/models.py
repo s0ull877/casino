@@ -66,11 +66,6 @@ class User(AbstractBaseUser, PermissionsMixin):
         help_text=_("Designates whether the user can log into this admin site."),
     )
 
-    dark_theme = models.BooleanField(
-        verbose_name='Темная тема',
-        blank=True, default=True
-    )
-
 
     @property
     def is_staff(self):

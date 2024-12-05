@@ -1,4 +1,4 @@
-from django.http import Http404
+from django.http import Http404, JsonResponse
 from django.shortcuts import redirect, render, HttpResponseRedirect
 from django.contrib.auth import login, authenticate
 from django.urls import reverse
@@ -65,3 +65,15 @@ def top_users_view(request):
 def settings_view(request):
 
     return render(request=request, template_name='users/settings.html')
+
+
+def theme_view(request):
+
+    if request.method != 'POST':
+        raise Http404()
+    
+    dark_theme = True if request.POST.get('dark_theme') == 'true' else False
+    
+    request.session['dark_theme'] = dark_theme
+
+    return JsonResponse({'status_code': 200})

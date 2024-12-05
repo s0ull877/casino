@@ -3,7 +3,7 @@
 
 {% block css %}
 <link rel="stylesheet" href="{% static 'casino/assets/settings.css' %}">
-<script src="assets/script.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 {% endblock css %}
 
 {% block content %}
@@ -146,18 +146,23 @@
                 <p class="state_balance_content">Настройки приложения</p>
             </div>
             <div class="settings-select">
+                {% csrf_token %}
                 <div class="theme-background">
                     <div class="theme">
                         <p>Тема приложения</p>
-                        <p>Темная <span>
+                        {% if request.session.dark_theme %}
+                            <p dark_theme="true" id="current-theme">Темная&nbsp;<span>
+                        {% else %}
+                            <p dark_theme="false" id="current-theme">Светлая&nbsp;<span>
+                        {% endif %}
                             <svg width="12" height="8" viewBox="0 0 12 8" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <path d="M10.59 0.59L6 5.17L1.41 0.589999L5.24537e-07 2L6 8L12 2L10.59 0.59Z" fill="white"/>
+                                <path d="M10.59 0.59L6 5.17L1.41 0.589999L5.24537e-07 2L6 8L12 2L10.59 0.59Z" fill="{% if request.session.dark_theme %}white{% else %}black{% endif %}"/>
                             </svg>
                         </span></p>
                     </div>
                     <div class="dop-menu-theme">
-                        <p>Светлая</p>
-                        <p>Темная</p>
+                        <p class="theme-var" style="padding-top: 5px;" dark_theme="false">Светлая&nbsp;</p>
+                        <p class="theme-var" dark_theme="true">Темная&nbsp;</p>
                     </div>
                 </div>
                 <div class="lang-background">
@@ -165,12 +170,12 @@
                         <p>Язык</p>
                         <p>Русский <span>
                             <svg width="12" height="8" viewBox="0 0 12 8" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <path d="M10.59 0.59L6 5.17L1.41 0.589999L5.24537e-07 2L6 8L12 2L10.59 0.59Z" fill="white"/>
+                                <path d="M10.59 0.59L6 5.17L1.41 0.589999L5.24537e-07 2L6 8L12 2L10.59 0.59Z" fill="{% if request.session.dark_theme %}white{% else %}black{% endif %}"/>
                             </svg>
                         </span></p>
                     </div>
                     <div class="dop-menu-lang">
-                        <p>Русский</p>
+                        <p style="padding-top: 5px;">Русский</p>
                         <p>Український</p>
                         <p>English</p>
                     </div>
@@ -228,14 +233,54 @@
     </div>
     <script>
         let div = document.querySelector('.dop-menu-theme');
-
-        document.querySelector('.theme-background').addEventListener('click', () => {
-        div.style.display = getComputedStyle(div).display == 'block' ? 'none' : 'block';
-    });
+        document.querySelector('.theme').addEventListener('click', () => {
+            div.style.display = getComputedStyle(div).display == 'block' ? 'none' : 'block';
+        });
+        
         let div1 = document.querySelector('.dop-menu-lang');
-
-            document.querySelector('.lang-background').addEventListener('click', () => {
+        document.querySelector('.lang').addEventListener('click', () => {
             div1.style.display = getComputedStyle(div1).display == 'block' ? 'none' : 'block';
-    });
+        });
+
+        let themes = document.querySelectorAll('.theme-var')
+
+        themes.forEach( theme => {
+            theme.addEventListener('click', function() {
+                var token = document.querySelector('input[name="csrfmiddlewaretoken"]').value
+                let theme = this
+                current_theme = document.getElementById('current-theme')
+                if (current_theme.getAttribute('dark_theme') != theme.getAttribute('dark_theme')) {
+                    
+                    $.ajax({
+                        type: "POST",
+                        url: {% url 'users:change_theme' %},
+                        data: {
+                            dark_theme: this.getAttribute('dark_theme'),
+                            csrfmiddlewaretoken: token,
+                        },
+                        success: function (data) {
+                
+                            console.log(data)
+                            
+                            current_theme.setAttribute('dark_theme', theme.getAttribute('dark_theme'))
+                            current_theme.innerHTML = theme.innerHTML
+                            console.log(theme.getAttribute('dark_theme'))
+                            if (theme.getAttribute('dark_theme') == 'false' ) {
+                                console.log('white mod')
+                                document.querySelector('head').innerHTML += `<link id="theme" rel="stylesheet" href="{% static 'casino/assets/white_theme.css' %}">`
+                            } else {
+                                console.log('dark mod')
+                                document.getElementById('theme').remove()
+                            }
+
+                        },
+                        error: function(data){
+                            console.log(data);
+                        }
+                    });
+                }
+            })
+        })
+   
     </script>
 {% endblock content %}

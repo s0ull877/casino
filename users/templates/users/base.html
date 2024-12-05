@@ -6,8 +6,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     {% block css %}{% endblock css %}
-    {% if not user.dark_theme %}
-        <link rel="stylesheet" href="{% static 'casino/assets/white_theme.css' %}">
+    {% if not request.session.dark_theme %}
+        <link id="theme" rel="stylesheet" href="{% static 'casino/assets/white_theme.css' %}">
     {% endif %}
     <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
     <title>Document</title>

@@ -300,7 +300,7 @@ canvas {
     justify-content: space-between;
 }
 .active_block {
-    background-color: #3F98FF;
+    background-color: #3F98FF !important;
 
 }
 .rate_block {
@@ -666,7 +666,7 @@ input::-webkit-inner-spin-button {
     background: linear-gradient(0deg, rgba(0,90,192,1) 0%, rgba(44,142,255,1) 100%);
 }
 .people_to_game {
-    background: white;
+    background: black;
 }
 .leader_title {
     margin-bottom: 7px;
