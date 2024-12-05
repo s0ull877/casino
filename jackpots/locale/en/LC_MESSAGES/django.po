@@ -1,0 +1,78 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2024-12-05 11:28+0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+#: .\templates\jackpots\includes\user_div.html:11
+#: .\templates\jackpots\jackpot_game.html:198
+#: .\templates\jackpots\jackpot_over.html:218
+msgid "Bet_sum"
+msgstr "Bet sum"
+
+#: .\templates\jackpots\jackpot_game copy.html:20
+#: .\templates\jackpots\jackpot_game.html:20
+#: .\templates\jackpots\jackpot_game.html:37
+#: .\templates\jackpots\jackpot_over.html:21
+#: .\templates\jackpots\jackpot_over.html:38
+msgid "Jackpot"
+msgstr "Jackpot"
+
+#: .\templates\jackpots\jackpot_game.html:20
+#: .\templates\jackpots\jackpot_over.html:21
+msgid "members"
+msgstr "members"
+
+#: .\templates\jackpots\jackpot_game.html:25
+msgid "End_time"
+msgstr "End time"
+
+#: .\templates\jackpots\jackpot_game.html:38
+#: .\templates\jackpots\jackpot_over.html:39
+msgid "Common_bank"
+msgstr "Common bank"
+
+#: .\templates\jackpots\jackpot_game.html:201
+msgid "Enter bet sum"
+msgstr "Enter bet sum"
+
+#: .\templates\jackpots\jackpot_game.html:206
+msgid "Place_a_bet"
+msgstr "Place a bet"
+
+#: .\templates\jackpots\jackpot_game.html:212
+msgid "Jackpot members"
+msgstr "Jackpot members"
+
+#: .\templates\jackpots\jackpot_over.html:26
+msgid "End Time"
+msgstr "End Time"
+
+#: .\templates\jackpots\jackpot_over.html:26
+msgid "Over"
+msgstr "Over"
+
+#: .\templates\jackpots\jackpot_over.html:202
+msgid "Deciding_the_outcome"
+msgstr "Deciding the outcome"
+
+#: .\templates\jackpots\jackpot_over.html:211
+msgid "Jackpot_winner"
+msgstr "Jackpot winner"
+
+#: .\templates\jackpots\jackpot_over.html:222
+msgid "Jackpot_members"
+msgstr "Jackpot members"

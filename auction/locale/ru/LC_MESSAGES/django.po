@@ -1,0 +1,110 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2024-12-05 13:00+0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=4; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
+"n%10<=4 && (n%100<12 || n%100>14) ? 1 : n%10==0 || (n%10>=5 && n%10<=9) || "
+"(n%100>=11 && n%100<=14)? 2 : 3);\n"
+#: .\templates\auctions\auction_game.html:20
+#: .\templates\auctions\auction_game.html:45
+#: .\templates\auctions\auctions2.html:69
+#: .\templates\auctions\auctions2.html:95
+#: .\templates\auctions\includes\auction_div.html:9
+msgid "Auction"
+msgstr "Аукцион"
+
+#: .\templates\auctions\auction_game.html:25
+#: .\templates\auctions\auction_game.html:345
+msgid "Time to bet"
+msgstr "Время на ставку"
+
+#: .\templates\auctions\auction_game.html:38
+#: .\templates\auctions\auctions2.html:399
+msgid "Custom auction"
+msgstr "Пользовательский аукцион"
+
+#: .\templates\auctions\auction_game.html:40
+#: .\templates\auctions\auctions2.html:91
+msgid "Official auction"
+msgstr "Официальный аукцион"
+
+#: .\templates\auctions\auction_game.html:46
+#: .\templates\auctions\auctions2.html:96
+#: .\templates\auctions\includes\auction_div.html:24
+msgid "Members"
+msgstr "Участников"
+
+#: .\templates\auctions\auction_game.html:359
+msgid "Enter bet sum"
+msgstr "Введите сумму ставки"
+
+#: .\templates\auctions\auction_game.html:365
+msgid "Place a bet"
+msgstr "Сделать ставку"
+
+#: .\templates\auctions\auction_game.html:371
+msgid "Auction members"
+msgstr "Участники аукциона"
+
+#: .\templates\auctions\auctions2.html:19
+msgid "Auction creating"
+msgstr "Создание аукциона"
+
+#: .\templates\auctions\auctions2.html:22
+msgid "Players count"
+msgstr "Количество участников"
+
+#: .\templates\auctions\auctions2.html:46
+msgid "Minimum bet amount"
+msgstr "Минимальная ставка"
+
+#: .\templates\auctions\auctions2.html:54
+msgid "Create"
+msgstr "Создать"
+
+#: .\templates\auctions\auctions2.html:74
+msgid "Create game"
+msgstr "Создать игру"
+
+#: .\templates\auctions\auctions2.html:388
+msgid "Desired rate"
+msgstr "Желаемая ставка"
+
+#: .\templates\auctions\includes\auction_div.html:20
+msgid "Minimum bet"
+msgstr "Минимальная ставка"
+
+#: .\templates\auctions\includes\auction_leader.html:5
+msgid "Current leader"
+msgstr "Текущий лидер"
+
+#: .\templates\auctions\includes\auction_leader.html:11
+#: .\templates\auctions\includes\auction_leader.html:21
+msgid "Common bank"
+msgstr "Общий банк"
+
+#: .\templates\auctions\includes\auction_leader.html:15
+msgid "Waiting for bets"
+msgstr "Ожидание ставок"
+
+#: .\templates\auctions\includes\user_div.html:11
+msgid "Bet sum"
+msgstr "Сумма ставки"
+
+#: .\templates\auctions\auctions2.html:49
+msgid "Enter minimum bet"
+msgstr "Введите минимальную ставку"

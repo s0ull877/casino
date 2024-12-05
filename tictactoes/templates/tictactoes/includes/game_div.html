@@ -1,9 +1,10 @@
+{% load i18n %}
 <a href="{% url 'tictactoes:game' group_name=game.group_name %}" class="no_hook">
     <div class="elemnt">
         <div class="auction_background">
             <div class="auction_elemnt">
                 <div class="auction_text number_auction">
-                    <p>Комната <span>#{{game.id}}</span></p>
+                    <p>{% trans "Room" %} <span>#{{game.id}}</span></p>
                     <p class="username">@{{game.first_player.nickname}}</p>
                 </div>
                 <div class="auction_type">
@@ -14,11 +15,11 @@
             </div>
             <div class="auction_information">
                 <div class="auction_information_text">
-                    <p>Ставка:</p>
+                    <p>{% trans "Bet" %}:</p>
                     <span>${{game.bet}}</span>
                 </div>
                 <div class="people_auction">
-                    <p>Сетка:</p>
+                    <p>{% trans "Field" %}:</p>
                     <span class="people">{{game.format}}x{{game.format}}</span>
                 </div>
             </div>

@@ -2,15 +2,15 @@
 {% load static %}
 {% load humanize %}
 {% load multiply  %}
+{% load i18n %}
 
 {% block css %}
     <link rel="stylesheet" href="{% static 'casino/assets/profile.css' %}">
-    <script src="{% static 'casino/assets/script.js' %}"></script>
 {% endblock css %}
 
 {% block content %}
     <div class="status_bar">
-        <p>Ваша сумма ставок: <span>${{user.total_bet}}</span></p>
+        <p>{% trans "Your_bet_amount" %}: <span>${{user.total_bet}}</span></p>
         <!-- <img src="assets/img/dimond.svg" alt=""> -->
         <svg width="59" height="75" viewBox="0 0 40 75" fill="none" xmlns="http://www.w3.org/2000/svg">
             <g opacity="0.4" filter="url(#filter0_f_0_43)">
@@ -152,19 +152,19 @@
                         </div>
                         <div class="balance_content_about">
                             <p class="title_type_game">{{user.nickname}}</p>
-                            <p class="date_content">С нами с: <span>{{user.register_time | date:'d.m.Y'}}</span></p>
+                            <p class="date_content">{% trans "With_us_with" %}: <span>{{user.register_time | date:'d.m.Y'}}</span></p>
                         </div>
                     </div>
                 </div>
             </div>
             <div class="state_balance">
-                <p class="state_balance_content">Баланс</p>
+                <p class="state_balance_content">{% trans "Ballance" %}</p>
                 <p class="title_type_game_content">${{user.wallet.ballance | intcomma}}</p>
             </div>
             <div class="button_list">
                 <a href="/" class="no_hook">
                     <div class="send">
-                        <p class="send_link button_text">Отправить</p>
+                        <p class="send_link button_text">{% trans "Send" %}</p>
                         <svg width="10" height="12" viewBox="0 0 10 12" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <path d="M5.00003 2.78183e-07L0.29286 4.55002C0.200012 4.63977 0.12636 4.74632 0.0761114 4.86358C0.0258625 4.98084 -2.8313e-07 5.10652 -2.91169e-07 5.23345C-2.99209e-07 5.36037 0.0258625 5.48605 0.0761114 5.60331C0.12636 5.72057 0.200012 5.82712 0.29286 5.91687C0.385708 6.00662 0.495934 6.07781 0.617246 6.12638C0.738558 6.17495 0.868579 6.19995 0.999885 6.19995C1.13119 6.19995 1.26121 6.17495 1.38252 6.12638C1.50384 6.07781 1.61406 6.00662 1.70691 5.91687L4 3.70034L3.99999 11.0333C3.99999 11.2897 4.10536 11.5356 4.2929 11.7169C4.48044 11.8982 4.7348 12 5.00003 12C5.26526 12 5.51962 11.8982 5.70716 11.7169C5.89471 11.5356 6.00007 11.2897 6.00007 11.0333L6.00007 3.70034L8.29315 5.91687C8.38581 6.00695 8.49597 6.07843 8.61731 6.12721C8.73865 6.17599 8.86876 6.2011 9.00018 6.2011C9.13159 6.2011 9.26171 6.17599 9.38304 6.12721C9.50438 6.07843 9.61455 6.00695 9.7072 5.91687C9.89468 5.73559 10 5.48977 10 5.23345C10 4.97713 9.89468 4.7313 9.7072 4.55002L5.00003 2.78183e-07Z" fill="white"/>
                         </svg>    
@@ -172,7 +172,7 @@
                 </a>
                 <a href="/" class="no_hook">
                     <div class="resend">
-                        <p class="resend_link button_text">Получить</p>
+                        <p class="resend_link button_text">{% trans "Get" %}</p>
                         <svg width="11" height="12" viewBox="0 0 11 12" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <path d="M5.49997 12L10.2071 7.44998C10.3 7.36023 10.3736 7.25368 10.4239 7.13642C10.4741 7.01916 10.5 6.89348 10.5 6.76655C10.5 6.63963 10.4741 6.51395 10.4239 6.39669C10.3736 6.27943 10.3 6.17288 10.2071 6.08313C10.1143 5.99338 10.0041 5.92219 9.88275 5.87362C9.76144 5.82505 9.63142 5.80005 9.50011 5.80005C9.36881 5.80005 9.23879 5.82505 9.11748 5.87362C8.99616 5.92219 8.88594 5.99338 8.79309 6.08313L6.5 8.29966L6.50001 0.966651C6.50001 0.71028 6.39464 0.464407 6.2071 0.283125C6.01956 0.101843 5.76519 6.29072e-08 5.49997 3.97204e-08C5.23474 1.65336e-08 4.98038 0.101843 4.79284 0.283125C4.60529 0.464407 4.49993 0.710279 4.49993 0.966651L4.49993 8.29966L2.20685 6.08313C2.11419 5.99305 2.00403 5.92157 1.88269 5.87279C1.76135 5.82401 1.63123 5.7989 1.49982 5.7989C1.36841 5.7989 1.23829 5.82401 1.11696 5.87279C0.995617 5.92157 0.885452 5.99305 0.792796 6.08313C0.605318 6.26441 0.5 6.51023 0.5 6.76655C0.499999 7.02287 0.605318 7.2687 0.792796 7.44997L5.49997 12Z" fill="#3F98FF"/>
                         </svg>                        
@@ -181,8 +181,8 @@
             </div>
             <div class="history">
                 <div class="history_header">
-                    <p>История баланса</p>
-                    <p class="full_history" id="toggleButton">Полная история</p>
+                    <p>{% trans "ballance_history" %}</p>
+                    <p class="full_history" id="toggleButton">{% trans "Full_history" %}</p>
                 </div>
             </div>
             <div class="history_list">
@@ -191,7 +191,7 @@
                         <div class="history_elemnt">
                             {% if transaction.sum > 0 %}
                                 <div class="history_text">
-                                    <p>Отправитель: <span>{{transaction.title}}</span></p>
+                                    <p>{% trans "Sender" %}: <span>{{transaction.title}}</span></p>
                                     <p class="sum"><span class="up">+</span> ${{transaction.sum | intcomma}}</p>
                                 </div>
                                 <div class="history_type">
@@ -201,7 +201,7 @@
                                 </div>
                             {% else %}
                                 <div class="history_text">
-                                    <p>Получатель: <span>{{transaction.title}}</span></p>
+                                    <p>{% trans "Recipient" %}: <span>{{transaction.title}}</span></p>
                                     <p class="sum"><span class="down">-</span> ${{transaction.sum | multiply:-1 }}</p>
                                 </div>
                                 <div class="history_type">
@@ -216,7 +216,7 @@
             </div>
             <div class="games_list_owner">
                 <div class="title_games">
-                    <p>История игр</p>
+                    <p>{% trans "Games_history" %}</p>
                 </div>
                 <div class="games_history">
                     {% for game in game_history %}
@@ -295,4 +295,28 @@
             </div>
         </div>
     </div>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const divs = document.querySelectorAll('.elemnt');
+            const toggleButton = document.getElementById('toggleButton');
+            let isExpanded = false;
+        
+            if (divs.length > 3) {
+                for (let i = 3; i < divs.length; i++) {
+                    divs[i].classList.add('hidden');
+                }
+            }
+        
+            toggleButton.addEventListener('click', function() {
+                isExpanded = !isExpanded;
+                divs.forEach((div, index) => {
+                    if (index >= 3) {
+                        div.classList.toggle('hidden', !isExpanded);
+                    }
+                });
+                toggleButton.textContent = isExpanded ? '{% trans "Hide_full_history" %}' : '{% trans "Full_history" %}';
+            });
+        });
+        
+    </script>
 {% endblock content %}

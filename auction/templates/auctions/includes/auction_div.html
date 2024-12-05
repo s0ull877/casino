@@ -1,11 +1,12 @@
 {% load static %}
+{% load i18n %}
 
 <a href="{% url 'auctions:auction' group_name=auction.group_name %}" class="no_hook">
     <div class="elemnt">
         <div class="auction_background">
             <div class="auction_elemnt">
                 <div class="auction_text number_auction">
-                    <p>Аукцион <span>#{{auction.id}}</span></p>
+                    <p>{% trans "Auction" %} <span>#{{auction.id}}</span></p>
                     <p class="username">@{{auction.owner}}</p>
                 </div>
                 <div class="auction_type">
@@ -16,11 +17,11 @@
             </div>
             <div class="auction_information">
                 <div class="auction_information_text">
-                    <p>Минимальная ставка:</p>
+                    <p>{% trans "Minimum bet" %}:</p>
                     <span>{{auction.min_bet}}$</span>
                 </div>
                 <div class="people_auction">
-                    <p>Участников:</p>
+                    <p>{% trans "Members" %}:</p>
                     <span class="people"><span style="padding: 0;" id='auction-members-{{auction.id}}'>{{auction.members_count}}</span>/{{auction.max_members}}</span>
                 </div>
             </div>

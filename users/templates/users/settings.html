@@ -1,6 +1,8 @@
 {% extends "users/base.html" %}
 {% load static %}
 
+{% load i18n %}
+
 {% block css %}
 <link rel="stylesheet" href="{% static 'casino/assets/settings.css' %}">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
@@ -8,7 +10,7 @@
 
 {% block content %}
     <div class="status_bar">
-        <p>Игроков онлайн: <span>215</span></p>
+        <p>{% trans 'OnlinePlayers' %}<span>{{online}}</span></p>
         <!-- <img src="assets/img/dimond.svg" alt=""> -->
         <svg width="59" height="75" viewBox="0 0 40 75" fill="none" xmlns="http://www.w3.org/2000/svg">
             <g opacity="0.4" filter="url(#filter0_f_0_43)">
@@ -143,17 +145,17 @@
     <div class="position_class">
         <div class="background_games">
             <div class="state_balance">
-                <p class="state_balance_content">Настройки приложения</p>
+                <p class="state_balance_content">{% trans 'AppSettings' %}</p>
             </div>
             <div class="settings-select">
                 {% csrf_token %}
                 <div class="theme-background">
                     <div class="theme">
-                        <p>Тема приложения</p>
+                        <p>{% trans 'AppTheme' %}</p>
                         {% if request.session.dark_theme %}
-                            <p dark_theme="true" id="current-theme">Темная&nbsp;<span>
+                            <p dark_theme="true" id="current-theme">{% trans 'Dark' %}&nbsp;<span>
                         {% else %}
-                            <p dark_theme="false" id="current-theme">Светлая&nbsp;<span>
+                            <p dark_theme="false" id="current-theme">{% trans 'White' %}&nbsp;<span>
                         {% endif %}
                             <svg width="12" height="8" viewBox="0 0 12 8" fill="none" xmlns="http://www.w3.org/2000/svg">
                                 <path d="M10.59 0.59L6 5.17L1.41 0.589999L5.24537e-07 2L6 8L12 2L10.59 0.59Z" fill="{% if request.session.dark_theme %}white{% else %}black{% endif %}"/>
@@ -161,23 +163,29 @@
                         </span></p>
                     </div>
                     <div class="dop-menu-theme">
-                        <p class="theme-var" style="padding-top: 5px;" dark_theme="false">Светлая&nbsp;</p>
-                        <p class="theme-var" dark_theme="true">Темная&nbsp;</p>
+                        <p class="theme-var" style="padding-top: 5px;" dark_theme="false">{% trans 'White' %}&nbsp;</p>
+                        <p class="theme-var" dark_theme="true">{% trans 'Dark' %}&nbsp;</p>
                     </div>
                 </div>
                 <div class="lang-background">
                     <div class="lang">
-                        <p>Язык</p>
-                        <p>Русский <span>
+                        <p>{% trans 'Language' %}</p>
+                        {% if request.LANGUAGE_CODE == 'ru' %}
+                        <p id="current-lang" lang="ru">Русский <span>
+                        {% elif request.LANGUAGE_CODE == 'ua' %}
+                        <p id="current-lang" lang="ua">Український <span>
+                        {% else %}
+                        <p id="current-lang" lang="en">English <span>
+                        {% endif %}
                             <svg width="12" height="8" viewBox="0 0 12 8" fill="none" xmlns="http://www.w3.org/2000/svg">
                                 <path d="M10.59 0.59L6 5.17L1.41 0.589999L5.24537e-07 2L6 8L12 2L10.59 0.59Z" fill="{% if request.session.dark_theme %}white{% else %}black{% endif %}"/>
                             </svg>
                         </span></p>
                     </div>
                     <div class="dop-menu-lang">
-                        <p style="padding-top: 5px;">Русский</p>
-                        <p>Український</p>
-                        <p>English</p>
+                        <p class="lang-var" lang="ru" style="padding-top: 5px;">Русский</p>
+                        <p class="lang-var" lang="ua">Український</p>
+                        <p class="lang-var" lang="en">English</p>
                     </div>
                 </div>
             </div>
@@ -272,6 +280,37 @@
                                 console.log('dark mod')
                                 document.getElementById('theme').remove()
                             }
+
+                        },
+                        error: function(data){
+                            console.log(data);
+                        }
+                    });
+                }
+            })
+        })
+
+        let langs = document.querySelectorAll('.lang-var')
+
+        langs.forEach( lang => {
+            lang.addEventListener('click', function() {
+                var token = document.querySelector('input[name="csrfmiddlewaretoken"]').value
+                let lang = this
+                current_lang = document.getElementById('current-lang')
+                if (current_lang.getAttribute('lang') != lang.getAttribute('lang')) {
+                    
+                    $.ajax({
+                        type: "POST",
+                        url: {% url 'users:change_lang' %},
+                        data: {
+                            lang: this.getAttribute('lang'),
+                            csrfmiddlewaretoken: token,
+                        },
+                        success: function (data) {
+                
+                            console.log(data)
+                            
+                            location.reload()
 
                         },
                         error: function(data){

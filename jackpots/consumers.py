@@ -1,4 +1,4 @@
-
+import os
 from datetime import timedelta
 import json
 from decimal import Decimal
@@ -18,6 +18,8 @@ class JackpotConsumer(WebsocketConsumer):
 
     def connect(self):
 
+        os.environ['online'] = str(int(os.getenv('online')) + 1)
+
         self.user = self.scope['user']
         self.group_name = 'jackpot_' + self.scope['url_route']['kwargs']['group_name']
 
@@ -34,6 +36,7 @@ class JackpotConsumer(WebsocketConsumer):
         self.accept()
 
     def disconnect(self, code):
+        os.environ['online'] =str(int(os.getenv('online')) - 1)
 
         async_to_sync(self.channel_layer.group_discard)(
             self.group_name, self.channel_name

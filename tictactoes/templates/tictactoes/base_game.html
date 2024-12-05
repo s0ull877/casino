@@ -1,5 +1,6 @@
 {% extends "users/base.html" %}
 {% load static %}
+{% load i18n %}
 
 {% block css %}
     <link rel="stylesheet" href="{% static 'casino/assets/tiktatok_game.css' %}">
@@ -81,11 +82,11 @@
                     <svg width="10" height="8" viewBox="0 0 10 8" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path d="M-1.74847e-07 3.99998L3.79169 7.76571C3.86648 7.83999 3.95527 7.89891 4.05298 7.93911C4.1507 7.97931 4.25544 8 4.36121 8C4.46697 8 4.57171 7.97931 4.66943 7.93911C4.76714 7.89891 4.85593 7.83999 4.93072 7.76571C5.00551 7.69143 5.06484 7.60325 5.10532 7.5062C5.14579 7.40915 5.16663 7.30514 5.16663 7.20009C5.16663 7.09505 5.14579 6.99103 5.10532 6.89398C5.06484 6.79693 5.00551 6.70875 4.93072 6.63447L3.08361 4.8L9.19446 4.8C9.4081 4.8 9.61299 4.71571 9.76406 4.56568C9.91513 4.41565 10 4.21216 10 3.99997C10 3.78779 9.91513 3.5843 9.76406 3.43427C9.61299 3.28423 9.4081 3.19995 9.19446 3.19995L3.08361 3.19995L4.93072 1.36548C5.00579 1.29135 5.06536 1.20322 5.10601 1.10615C5.14665 1.00908 5.16758 0.904989 5.16758 0.799858C5.16758 0.694728 5.14665 0.590635 5.10601 0.493565C5.06536 0.396495 5.00579 0.308362 4.93072 0.234237C4.77966 0.084255 4.57481 2.76866e-07 4.3612 2.86203e-07C4.1476 2.9554e-07 3.94275 0.084255 3.79169 0.234237L-1.74847e-07 3.99998Z" fill="#707385"/>
                     </svg>            
-                    <p>Крестики-нолики {{game.format}}х{{game.format}}</p>
+                    <p>{% trans "Tic-Tac-Toe" %} {{game.format}}х{{game.format}}</p>
                 </div>
             </a>
             <div class="create_game">
-                <p><span id="move-time">Ожидание соперника</span><span id="progressbar1-time"></span></p>
+                <p><span id="move-time">{% trans "Waiting for bets" %}</span><span id="progressbar1-time"></span></p>
             </div>
         </div>
     </div>
@@ -102,7 +103,7 @@
                         alt="oponent-image">
                         <div class="user-state">
                             <p class="state_auction_content">@<span id="oponent-nickname">{{game.second_player.nickname}}</span></p>
-                            <p class="rate">Ваш опонент</p>
+                            <p class="rate">{% trans "Your opponent" %}</p>
                         </div>
                     </div>
                     <div class="type-gamer">
@@ -114,7 +115,7 @@
                         <img id="oponent-image" src="{{game.first_player.image.url}}" alt="oponent-image">
                         <div class="user-state">
                             <p  class="state_auction_content">@<span id="oponent-nickname">{{game.first_player.nickname}}</span></p>
-                            <p class="rate">Ваш опонент</p>
+                            <p class="rate">{% trans "Your opponent" %}</p>
                         </div>
                     </div>
                     <div class="type-gamer">
@@ -132,11 +133,11 @@
             
             <div class="status_game">
                 <div class="status_game_title">
-                    <p>Ставка</p>
+                    <p>{% trans "Bet" %}</p>
                     <span>${{game.bet}}</span>
                 </div>
                 <button id="submit" onclick="UpdateMap()" class="status_game_button" disabled>
-                    Сделать ход
+                    {% trans "Make a move" %}
                 </button>
             </div>
         </div>
@@ -178,9 +179,9 @@
                     document.getElementById('oponent-image').src = data.oponent_image
                     if (document.querySelector('.my-move').id == data.move) {
                         document.getElementById('submit').disabled = false;
-                        document.getElementById('move-time').innerHTML = 'Ваш ход: ';
+                        document.getElementById('move-time').innerHTML = '{% trans "Your move" %}: ';
                     } else {
-                        document.getElementById('move-time').innerHTML = 'Ход опонента: ';
+                        document.getElementById('move-time').innerHTML = '{% trans "Opponent move" %}: ';
                     }
                     progressBar(60, 60, data.move)
 
@@ -188,9 +189,9 @@
                     writeMap(data.map)
                     if (document.querySelector('.my-move').id == data.move) {
                         document.getElementById('submit').disabled = false;
-                        document.getElementById('move-time').innerHTML = 'Ваш ход: ';
+                        document.getElementById('move-time').innerHTML = '{% trans "Your move" %}: ';
                     } else {
-                        document.getElementById('move-time').innerHTML = 'Ход опонента: ';
+                        document.getElementById('move-time').innerHTML = '{% trans "Opponent move" %}: ';
                     }
                     if (g_inteval) {
                         clearInterval(g_inteval)
@@ -207,9 +208,9 @@
                     result.style.opacity = '1'
                     console.log(document.getElementById("oponent-nickname").innerText, data.winner)
                     if (document.getElementById("oponent-nickname").innerText == data.winner) {
-                        result.innerHTML = 'Вы проиграли!'
+                        result.innerHTML = '{% trans "You lost" %}!'
                     } else {
-                        result.innerHTML = 'Вы победили!'
+                        result.innerHTML = '{% trans "You won" %}!'
                     }
                     ws.close()
 

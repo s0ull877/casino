@@ -1,10 +1,14 @@
+import os
 from django.http import Http404, JsonResponse
 from django.shortcuts import redirect, render, HttpResponseRedirect
 from django.contrib.auth import login, authenticate
 from django.urls import reverse
 from ballance.models import BallanceTransaction
-from django.db.models import Sum
 from django.contrib.auth.decorators import login_required
+
+from django.utils import translation
+from django.conf import settings
+
 
 from .models import User
 
@@ -47,7 +51,8 @@ def profile_view(request):
 
 @login_required
 def games_view(request):
-    return render(request, 'users/index.html')
+    context = {'online': 1 if int(os.environ['online']) < 1 else int(os.environ['online'])}
+    return render(request, 'users/index.html', context=context)
 
 
 @login_required
@@ -63,8 +68,9 @@ def top_users_view(request):
 
 @login_required
 def settings_view(request):
+    context = {'online': 1 if int(os.environ['online']) < 1 else int(os.environ['online'])}
 
-    return render(request=request, template_name='users/settings.html')
+    return render(request=request, template_name='users/settings.html', context=context)
 
 
 def theme_view(request):
@@ -77,3 +83,16 @@ def theme_view(request):
     request.session['dark_theme'] = dark_theme
 
     return JsonResponse({'status_code': 200})
+
+
+def lang_view(request):
+
+    if request.method != 'POST':
+        raise Http404()
+    
+    user_language = request.POST.get('lang')
+    translation.activate(user_language)  # Активируем язык
+    response = JsonResponse({'status_code': 200})
+    response.set_cookie(settings.LANGUAGE_COOKIE_NAME, user_language)
+    
+    return response

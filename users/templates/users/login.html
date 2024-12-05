@@ -1,5 +1,7 @@
 {% load static %}
 
+{% load i18n %}
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -31,7 +33,7 @@
                 <div class="games_list">
                     <div class="type_game auction_content">
                         <div class="auction_content_about">
-                            <p class="title_type_game">Авторизация</p>
+                            <p class="title_type_game">{% trans "Login" %}</p>
                             <p class="quantity">UsId: <span>{{user_id}}</span></p>
                         </div>
                         <div class="auction_iamge">
@@ -202,7 +204,7 @@
                         <div class="footer_game">
                             <button class="no_hook" type="submit">
                                 <div class="create_game_auction">
-                                    Войти
+                                    {% trans "signIn" %}
                                 </div>
                             </button>
                         </div>

@@ -1,0 +1,160 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2024-12-05 10:46+0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=4; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
+"n%10<=4 && (n%100<12 || n%100>14) ? 1 : n%10==0 || (n%10>=5 && n%10<=9) || "
+"(n%100>=11 && n%100<=14)? 2 : 3);\n"
+#: .\models.py:43
+msgid "A user with that user_id already exists."
+msgstr ""
+
+#: .\models.py:64
+msgid "admin status"
+msgstr "Статус администратора"
+
+#: .\models.py:66
+msgid "Designates whether the user can log into this admin site."
+msgstr "Designates whether the user can log into this admin site."
+
+#: .\templates\users\index.html:12
+msgid "Players_online"
+msgstr "Игроков онлайн: "
+
+#: .\templates\users\index.html:146
+msgid "Games_list"
+msgstr "Список доступных игр"
+
+#: .\templates\users\index.html:151
+msgid "Jackpot"
+msgstr "Джекпот"
+
+#: .\templates\users\index.html:152
+msgid "Try_your_luck"
+msgstr "Испытай свою удачу!"
+
+#: .\templates\users\index.html:157
+msgid "Auction"
+msgstr "Аукцион"
+
+#: .\templates\users\index.html:158
+msgid "Highest_bid_will_win"
+msgstr "Наивысшая ставка побеждает!"
+
+#: .\templates\users\index.html:163
+msgid "Tic_Tac_Toe"
+msgstr "Крестики-Нолики"
+
+#: .\templates\users\index.html:164
+msgid "Сlassic_game_with_different_format"
+msgstr "Классическая игра с разными форматами!"
+
+#: .\templates\users\index.html:172
+msgid "top_players"
+msgstr "Топ игроков"
+
+#: .\templates\users\index.html:173
+msgid "Play_and_get_to_the_top!"
+msgstr "Играй и попадай в топ!"
+
+#: .\templates\users\login.html:36
+msgid "Login"
+msgstr "Авторизация"
+
+#: .\templates\users\login.html:207
+msgid "signIn"
+msgstr "Войти"
+
+#: .\templates\users\profile.html:13
+msgid "Your_bet_amount"
+msgstr "Ваша сумма ставок"
+
+#: .\templates\users\profile.html:155
+msgid "With_us_with"
+msgstr "С нами с"
+
+#: .\templates\users\profile.html:161
+msgid "Ballance"
+msgstr "Балланс"
+
+#: .\templates\users\profile.html:167
+msgid "Send"
+msgstr "Отправить"
+
+#: .\templates\users\profile.html:175
+msgid "Get"
+msgstr "Получить"
+
+#: .\templates\users\profile.html:184
+msgid "ballance_history"
+msgstr "История балланса"
+
+#: .\templates\users\profile.html:185 .\templates\users\profile.html:317
+msgid "Full_history"
+msgstr "Полная история"
+
+#: .\templates\users\profile.html:194
+msgid "Sender"
+msgstr "Отправитель"
+
+#: .\templates\users\profile.html:204
+msgid "Recipient"
+msgstr "Получатель"
+
+#: .\templates\users\profile.html:219
+msgid "Games_history"
+msgstr "История игр"
+
+#: .\templates\users\profile.html:317
+msgid "Hide_full_history"
+msgstr "Скрыть полную историю"
+
+#: .\templates\users\settings.html:13
+msgid "OnlinePlayers"
+msgstr "Игроков онлайн: "
+
+#: .\templates\users\settings.html:148
+msgid "AppSettings"
+msgstr "Настройки приложения"
+
+#: .\templates\users\settings.html:154
+msgid "AppTheme"
+msgstr "Тема приложения"
+
+#: .\templates\users\settings.html:156 .\templates\users\settings.html:167
+msgid "Dark"
+msgstr "Темная"
+
+#: .\templates\users\settings.html:158 .\templates\users\settings.html:166
+msgid "White"
+msgstr "Светлая"
+
+#: .\templates\users\settings.html:172
+msgid "Language"
+msgstr "Язык"
+
+#: .\templates\users\top_players.html:12
+msgid "Total_users"
+msgstr "Всего участников"
+
+#: .\templates\users\top_players.html:164
+msgid "Place"
+msgstr "Место"
+
+#: .\validators.py:18 .\validators.py:26
+msgid "This password contains only digits. only_digits=True "
+msgstr "This password contains only digits. only_digits=True "

@@ -1,4 +1,4 @@
-
+import os
 from datetime import timedelta
 import json
 from decimal import Decimal
@@ -19,10 +19,16 @@ class GamesConsumer(AsyncWebsocketConsumer):
     ordering = [1,10]
 
     async def connect(self):
+        os.environ['online'] = str(int(os.getenv('online')) + 1)
         
         await self.accept()
 
         await self.send_games()
+
+    async def disconnect(self, code):
+        os.environ['online'] = str(int(os.getenv('online')) - 1)
+
+        return await super().disconnect(code)
 
 
     async def send_games(self):
@@ -61,6 +67,7 @@ class GamesConsumer(AsyncWebsocketConsumer):
 class GameConsumer(WebsocketConsumer):
 
     def connect(self):
+        os.environ['online'] = str(int(os.getenv('online')) + 1)
 
         self.user = self.scope['user']
         self.group_name = self.scope['url_route']['kwargs']['group_name']
@@ -186,6 +193,7 @@ class GameConsumer(WebsocketConsumer):
 
 
     def disconnect(self, code):
+        os.environ['online'] = str(int(os.getenv('online')) - 1)
 
         async_to_sync(self.channel_layer.group_discard)(
             self.group_name, self.channel_name

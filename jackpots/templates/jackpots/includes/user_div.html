@@ -1,4 +1,5 @@
 {% load static %}
+{% load i18n %}
 
 <div id="user-{{bet.user.id}}-cart" class="user-card">
     <div class="user-photo">
@@ -7,6 +8,6 @@
     </div>
     <div class="user-info">
         <p class="user-title">@{{bet.user.nickname}}</p>
-        <p class="user-range">Сумма ставки: $<span>{{bet.deposit}}</span></p>
+        <p class="user-range">{% trans "Bet_sum" %}: $<span>{{bet.deposit}}</span></p>
     </div>
 </div>

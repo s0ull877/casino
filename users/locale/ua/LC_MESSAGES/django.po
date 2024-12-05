@@ -1,0 +1,158 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2024-12-05 10:46+0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: .\models.py:43
+msgid "A user with that user_id already exists."
+msgstr "A user with that user_id already exists."
+
+#: .\models.py:64
+msgid "admin status"
+msgstr "admin status"
+
+#: .\models.py:66
+msgid "Designates whether the user can log into this admin site."
+msgstr "Designates whether the user can log into this admin site."
+
+#: .\templates\users\index.html:12
+msgid "Players_online"
+msgstr "Гравців онлайн: "
+
+#: .\templates\users\index.html:146
+msgid "Games_list"
+msgstr "Список доступних ігор"
+
+#: .\templates\users\index.html:151
+msgid "Jackpot"
+msgstr "Джекпот"
+
+#: .\templates\users\index.html:152
+msgid "Try_your_luck"
+msgstr "Випробуй свій успіх!"
+
+#: .\templates\users\index.html:157
+msgid "Auction"
+msgstr "Аукціон"
+
+#: .\templates\users\index.html:158
+msgid "Highest_bid_will_win"
+msgstr "Найвища ставка перемагає!"
+
+#: .\templates\users\index.html:163
+msgid "Tic_Tac_Toe"
+msgstr "Хрестики-Нолики"
+
+#: .\templates\users\index.html:164
+msgid "Сlassic_game_with_different_format"
+msgstr "Класична гра з різними форматами!"
+
+#: .\templates\users\index.html:172
+msgid "top_players"
+msgstr "Топ гравців"
+
+#: .\templates\users\index.html:173
+msgid "Play_and_get_to_the_top!"
+msgstr "Грай та потрапляй у топ!"
+
+#: .\templates\users\login.html:36
+msgid "Login"
+msgstr "Авторизація"
+
+#: .\templates\users\login.html:207
+msgid "signIn"
+msgstr "Увійти"
+
+#: .\templates\users\profile.html:13
+msgid "Your_bet_amount"
+msgstr "Ваша сумма ставок"
+
+#: .\templates\users\profile.html:155
+msgid "With_us_with"
+msgstr "З нами з"
+
+#: .\templates\users\profile.html:161
+msgid "Ballance"
+msgstr "Баланс"
+
+#: .\templates\users\profile.html:167
+msgid "Send"
+msgstr "Надіслати"
+
+#: .\templates\users\profile.html:175
+msgid "Get"
+msgstr "Отримати"
+
+#: .\templates\users\profile.html:184
+msgid "ballance_history"
+msgstr "Історія балансу"
+
+#: .\templates\users\profile.html:185 .\templates\users\profile.html:317
+msgid "Full_history"
+msgstr "Повна історія"
+
+#: .\templates\users\profile.html:194
+msgid "Sender"
+msgstr "Відправник"
+
+#: .\templates\users\profile.html:204
+msgid "Recipient"
+msgstr "Одержувач"
+
+#: .\templates\users\profile.html:219
+msgid "Games_history"
+msgstr "Історія ігор"
+
+#: .\templates\users\profile.html:317
+msgid "Hide_full_history"
+msgstr "Приховати повну історію"
+
+#: .\templates\users\settings.html:13
+msgid "OnlinePlayers"
+msgstr "Гравців онлайн: "
+
+#: .\templates\users\settings.html:148
+msgid "AppSettings"
+msgstr "Налаштування програми"
+
+#: .\templates\users\settings.html:154
+msgid "AppTheme"
+msgstr "Тема програми"
+
+#: .\templates\users\settings.html:156 .\templates\users\settings.html:167
+msgid "Dark"
+msgstr "Темна"
+
+#: .\templates\users\settings.html:158 .\templates\users\settings.html:166
+msgid "White"
+msgstr "Світла"
+
+#: .\templates\users\settings.html:172
+msgid "Language"
+msgstr "Мова"
+
+#: .\templates\users\top_players.html:12
+msgid "Total_users"
+msgstr "Усього учасників"
+
+#: .\templates\users\top_players.html:164
+msgid "Place"
+msgstr "Місце"
+
+#: .\validators.py:18 .\validators.py:26
+msgid "This password contains only digits. only_digits=True "
+msgstr "This password contains only digits. only_digits=True "

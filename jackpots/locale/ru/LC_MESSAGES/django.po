@@ -1,0 +1,80 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2024-12-05 11:28+0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=4; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
+"n%10<=4 && (n%100<12 || n%100>14) ? 1 : n%10==0 || (n%10>=5 && n%10<=9) || "
+"(n%100>=11 && n%100<=14)? 2 : 3);\n"
+#: .\templates\jackpots\includes\user_div.html:11
+#: .\templates\jackpots\jackpot_game.html:198
+#: .\templates\jackpots\jackpot_over.html:218
+msgid "Bet_sum"
+msgstr "Сумма ставки"
+
+#: .\templates\jackpots\jackpot_game copy.html:20
+#: .\templates\jackpots\jackpot_game.html:20
+#: .\templates\jackpots\jackpot_game.html:37
+#: .\templates\jackpots\jackpot_over.html:21
+#: .\templates\jackpots\jackpot_over.html:38
+msgid "Jackpot"
+msgstr "Джекпот"
+
+#: .\templates\jackpots\jackpot_game.html:20
+#: .\templates\jackpots\jackpot_over.html:21
+msgid "members"
+msgstr "участников"
+
+#: .\templates\jackpots\jackpot_game.html:25
+msgid "End_time"
+msgstr "Окончание"
+
+#: .\templates\jackpots\jackpot_game.html:38
+#: .\templates\jackpots\jackpot_over.html:39
+msgid "Common_bank"
+msgstr "Общий банк"
+
+#: .\templates\jackpots\jackpot_game.html:201
+msgid "Enter bet sum"
+msgstr "Введите сумму ставки"
+
+#: .\templates\jackpots\jackpot_game.html:206
+msgid "Place_a_bet"
+msgstr "Сделать ставку"
+
+#: .\templates\jackpots\jackpot_game.html:212
+msgid "Jackpot members"
+msgstr "Участники джекпота"
+
+#: .\templates\jackpots\jackpot_over.html:26
+msgid "End Time"
+msgstr "Окончание"
+
+#: .\templates\jackpots\jackpot_over.html:26
+msgid "Over"
+msgstr "Закончен"
+
+#: .\templates\jackpots\jackpot_over.html:202
+msgid "Deciding_the_outcome"
+msgstr "Решаем исход"
+
+#: .\templates\jackpots\jackpot_over.html:211
+msgid "Jackpot_winner"
+msgstr "Победитель джекпота"
+
+#: .\templates\jackpots\jackpot_over.html:222
+msgid "Jackpot_members"
+msgstr "Участники джекпота"

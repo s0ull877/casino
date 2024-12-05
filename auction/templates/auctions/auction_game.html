@@ -1,6 +1,7 @@
 {% extends "users/base.html" %}
 
 {% load static %}
+{% load i18n %}
 
 {% block css %}
     <link rel="stylesheet" href="{% static 'casino/assets/auction_game.css' %}">
@@ -16,12 +17,12 @@
                         <svg width="10" height="8" viewBox="0 0 10 8" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <path d="M-1.74847e-07 3.99998L3.79169 7.76571C3.86648 7.83999 3.95527 7.89891 4.05298 7.93911C4.1507 7.97931 4.25544 8 4.36121 8C4.46697 8 4.57171 7.97931 4.66943 7.93911C4.76714 7.89891 4.85593 7.83999 4.93072 7.76571C5.00551 7.69143 5.06484 7.60325 5.10532 7.5062C5.14579 7.40915 5.16663 7.30514 5.16663 7.20009C5.16663 7.09505 5.14579 6.99103 5.10532 6.89398C5.06484 6.79693 5.00551 6.70875 4.93072 6.63447L3.08361 4.8L9.19446 4.8C9.4081 4.8 9.61299 4.71571 9.76406 4.56568C9.91513 4.41565 10 4.21216 10 3.99997C10 3.78779 9.91513 3.5843 9.76406 3.43427C9.61299 3.28423 9.4081 3.19995 9.19446 3.19995L3.08361 3.19995L4.93072 1.36548C5.00579 1.29135 5.06536 1.20322 5.10601 1.10615C5.14665 1.00908 5.16758 0.904989 5.16758 0.799858C5.16758 0.694728 5.14665 0.590635 5.10601 0.493565C5.06536 0.396495 5.00579 0.308362 4.93072 0.234237C4.77966 0.084255 4.57481 2.76866e-07 4.3612 2.86203e-07C4.1476 2.9554e-07 3.94275 0.084255 3.79169 0.234237L-1.74847e-07 3.99998Z" fill="#707385"/>
                         </svg>            
-                        <p>Аукцион <span class="people_to_game"><span id="auction-members-1" style="padding: 0;">{{auction.members_count}}</span>/{{auction.max_members}}</span></p>
+                        <p>{% trans "Auction" %} <span class="people_to_game"><span id="auction-members-1" style="padding: 0;">{{auction.members_count}}</span>/{{auction.max_members}}</span></p>
                     </div>
                 </a>
                 <!-- <a href="/" class="no_hook" onclick="show()"> -->
                     <div class="create_game">
-                        <p>Время на ставку:&nbsp<span id="progressbar1-time">0:00</span></p>
+                        <p>{% trans "Time to bet" %}:&nbsp<span id="progressbar1-time">0:00</span></p>
                     </div>
                 <!-- </a> -->
             </div>
@@ -34,15 +35,15 @@
         <div class="background_games">
             <div class="background_list">
                 {% if auction.owner %}
-                    <p class="offical_title">Пользовательский аукцион</p>
+                    <p class="offical_title">{% trans "Custom auction" %}</p>
                 {% else %}
-                    <p class="offical_title">Официальный аукцион</p>
+                    <p class="offical_title">{% trans "Official auction" %}</p>
                 {% endif %}
                 <div class="auction_games_list">
                     <div class="type_game auction_content">
                         <div class="auction_content_about">
-                            <p class="title_type_game">Аукцион №{{auction.id}}</p>
-                            <p class="quantity">Участников <span id="auction-members-2" style="padding: 0;">{{auction.members_count}}</span>/{{auction.max_members}}</p>
+                            <p class="title_type_game">{% trans "Auction" %} №{{auction.id}}</p>
+                            <p class="quantity">{% trans "Members" %} <span id="auction-members-2" style="padding: 0;">{{auction.members_count}}</span>/{{auction.max_members}}</p>
                         </div>
                         <div class="auction_iamge">
                             <svg width="133" height="134" viewBox="0 0 133 134" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -341,7 +342,7 @@
                         </div>
                         <div class="auction_information">
                             <div class="auction_information_text">
-                                <p>Время на ставку:</p>
+                                <p>{% trans "Time to bet" %}:</p>
                                 <span id="progressbar2-time">0:00</span>
                             </div>
                         </div>
@@ -355,19 +356,19 @@
             <div class="get_bet">
                 <div class="input_text">
                     <div class="input_sum">
-                        <input id="bet-sum" type="number" placeholder="Введите сумму ставки">
+                        <input id="bet-sum" type="number" placeholder="{% trans 'Enter bet sum' %}">
                     </div>
                     <div id="user-ballance" style="display: none;">{{request.user.wallet.ballance}}</div>
                     <div class="footer_game">
                         <a style='cursor: pointer; color: white;' class="no_hook" onclick="userBet()">
                             <div class="create_game_auction">
-                                Сделать ставку
+                                {% trans "Place a bet" %}
                             </div>
                         </a>
                     </div>
                 </div>
             </div>
-            <p>Участники аукциона</p>
+            <p>{% trans "Auction members" %}</p>
             <div id="users-list" class="users_list">
 
             </div>

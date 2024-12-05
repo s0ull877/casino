@@ -1,5 +1,6 @@
 {% extends "users/base.html" %}
 {% load static %}
+{% load i18n %}
 
 {% block css %}
     <link rel="stylesheet" href="{% static 'casino/assets/jekpot_game.css' %}">
@@ -17,12 +18,12 @@
                         <svg width="10" height="8" viewBox="0 0 10 8" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <path d="M-1.74847e-07 3.99998L3.79169 7.76571C3.86648 7.83999 3.95527 7.89891 4.05298 7.93911C4.1507 7.97931 4.25544 8 4.36121 8C4.46697 8 4.57171 7.97931 4.66943 7.93911C4.76714 7.89891 4.85593 7.83999 4.93072 7.76571C5.00551 7.69143 5.06484 7.60325 5.10532 7.5062C5.14579 7.40915 5.16663 7.30514 5.16663 7.20009C5.16663 7.09505 5.14579 6.99103 5.10532 6.89398C5.06484 6.79693 5.00551 6.70875 4.93072 6.63447L3.08361 4.8L9.19446 4.8C9.4081 4.8 9.61299 4.71571 9.76406 4.56568C9.91513 4.41565 10 4.21216 10 3.99997C10 3.78779 9.91513 3.5843 9.76406 3.43427C9.61299 3.28423 9.4081 3.19995 9.19446 3.19995L3.08361 3.19995L4.93072 1.36548C5.00579 1.29135 5.06536 1.20322 5.10601 1.10615C5.14665 1.00908 5.16758 0.904989 5.16758 0.799858C5.16758 0.694728 5.14665 0.590635 5.10601 0.493565C5.06536 0.396495 5.00579 0.308362 4.93072 0.234237C4.77966 0.084255 4.57481 2.76866e-07 4.3612 2.86203e-07C4.1476 2.9554e-07 3.94275 0.084255 3.79169 0.234237L-1.74847e-07 3.99998Z" fill="#707385"/>
                         </svg>            
-                        <p>Джекпот, <span id="members_count" class="people_to_game">{{bets.count}}</span> участников</p>
+                        <p>{% trans "Jackpot" %}, <span id="members_count" class="people_to_game">{{bets.count}}</span> {% trans "members" %}</p>
                     </div>
                 </a>
                 <!-- <a href="/" class="no_hook" onclick="show()"> -->
                     <div class="create_game">
-                        <p>Окончание: <span>Закончен</span></p>
+                        <p>{% trans "End Time" %}: <span>{% trans "Over" %}</span></p>
                     </div>
                 <!-- </a> -->
             </div>
@@ -34,8 +35,8 @@
                 <div class="games_list">
                     <div class="type_game auction_content">
                         <div class="auction_content_about">
-                            <p class="title_type_game">Джекпот №1</p>
-                            <p class="quantity">Общий банк $<span>{{jackpot.common_bank}}</span></p>
+                            <p class="title_type_game">{% trans "Jackpot" %} №1</p>
+                            <p class="quantity">{% trans "Common_bank" %} $<span>{{jackpot.common_bank}}</span></p>
                         </div>
                         <div class="auction_iamge">
                             <svg width="143" height="136" viewBox="0 0 143 136" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -198,7 +199,7 @@
                 <div class="toggle"></div>
                 <div class="canvas-label">
                     <div></div>
-                    <div>Решаем исход...</div>
+                    <div>{% trans "Deciding_the_outcome" %}...</div>
                 </div>
                 <div id="container">
                     <canvas id="myChart">
@@ -207,18 +208,18 @@
                 </div>
             </div>
             <div id="winner-jackpot" class="get_bet">
-                <p>Победитель джекпота</p>
+                <p>{% trans "Jackpot_winner" %}</p>
                 <div id="user-winner-cart" class="user-card">
                     <div class="user-photo">
                         <img src="{{winner_bet.user.image.url}}" alt="user-{{winner_bet.user.id}}-avatar">
                     </div>
                     <div class="user-info">
                         <p class="user-title">@{{winner_bet.user.nickname}}</p>
-                        <p class="user-range">Сумма ставки: $<span>{{winner_bet.deposit}}</span></p>
+                        <p class="user-range">{% trans "Bet_sum" %}: $<span>{{winner_bet.deposit}}</span></p>
                     </div>
                 </div>
             </div>
-            <p>Участники джекпота</p>
+            <p>{% trans "Jackpot_members" %}</p>
             <div class="users_list">
                 {% for bet in bets %}
                     {% include "jackpots/includes/user_div.html" %}                

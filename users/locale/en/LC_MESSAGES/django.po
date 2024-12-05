@@ -1,0 +1,158 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2024-12-05 10:46+0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+#: .\models.py:43
+msgid "A user with that user_id already exists."
+msgstr ""
+
+#: .\models.py:64
+msgid "admin status"
+msgstr "admin status"
+
+#: .\models.py:66
+msgid "Designates whether the user can log into this admin site."
+msgstr "Designates whether the user can log into this admin site."
+
+#: .\templates\users\index.html:12
+msgid "Players_online"
+msgstr "Players online: "
+
+#: .\templates\users\index.html:146
+msgid "Games_list"
+msgstr "Games list"
+
+#: .\templates\users\index.html:151
+msgid "Jackpot"
+msgstr "Jackpot"
+
+#: .\templates\users\index.html:152
+msgid "Try_your_luck"
+msgstr "Try your luck!"
+
+#: .\templates\users\index.html:157
+msgid "Auction"
+msgstr "Auction"
+
+#: .\templates\users\index.html:158
+msgid "Highest_bid_will_win"
+msgstr "Highest bid will win!"
+
+#: .\templates\users\index.html:163
+msgid "Tic_Tac_Toe"
+msgstr "Tic Tac Toe"
+
+#: .\templates\users\index.html:164
+msgid "Сlassic_game_with_different_format"
+msgstr "Сlassic game with different format"
+
+#: .\templates\users\index.html:172
+msgid "top_players"
+msgstr "Top players"
+
+#: .\templates\users\index.html:173
+msgid "Play_and_get_to_the_top!"
+msgstr "Play and get to the top!"
+
+#: .\templates\users\login.html:36
+msgid "Login"
+msgstr "Login"
+
+#: .\templates\users\login.html:207
+msgid "signIn"
+msgstr "Sign in"
+
+#: .\templates\users\profile.html:13
+msgid "Your_bet_amount"
+msgstr "Your bet amount"
+
+#: .\templates\users\profile.html:155
+msgid "With_us_with"
+msgstr "With us with"
+
+#: .\templates\users\profile.html:161
+msgid "Ballance"
+msgstr "Ballance"
+
+#: .\templates\users\profile.html:167
+msgid "Send"
+msgstr "Send"
+
+#: .\templates\users\profile.html:175
+msgid "Get"
+msgstr "Receive"
+
+#: .\templates\users\profile.html:184
+msgid "ballance_history"
+msgstr "Ballance history"
+
+#: .\templates\users\profile.html:185 .\templates\users\profile.html:317
+msgid "Full_history"
+msgstr "Full history"
+
+#: .\templates\users\profile.html:194
+msgid "Sender"
+msgstr "Sender"
+
+#: .\templates\users\profile.html:204
+msgid "Recipient"
+msgstr "Recipient"
+
+#: .\templates\users\profile.html:219
+msgid "Games_history"
+msgstr "Games history"
+
+#: .\templates\users\profile.html:317
+msgid "Hide_full_history"
+msgstr "Hide full history"
+
+#: .\templates\users\settings.html:13
+msgid "OnlinePlayers"
+msgstr "Players online: "
+
+#: .\templates\users\settings.html:148
+msgid "AppSettings"
+msgstr "App settings"
+
+#: .\templates\users\settings.html:154
+msgid "AppTheme"
+msgstr "App theme"
+
+#: .\templates\users\settings.html:156 .\templates\users\settings.html:167
+msgid "Dark"
+msgstr "Dark"
+
+#: .\templates\users\settings.html:158 .\templates\users\settings.html:166
+msgid "White"
+msgstr "White"
+
+#: .\templates\users\settings.html:172
+msgid "Language"
+msgstr "Language"
+
+#: .\templates\users\top_players.html:12
+msgid "Total_users"
+msgstr "Total users"
+
+#: .\templates\users\top_players.html:164
+msgid "Place"
+msgstr "Place"
+
+#: .\validators.py:18 .\validators.py:26
+msgid "This password contains only digits. only_digits=True"
+msgstr "This password contains only digits. only_digits=True"

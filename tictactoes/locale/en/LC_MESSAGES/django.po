@@ -1,0 +1,99 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2024-12-05 13:24+0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+#: .\templates\tictactoes\base_game.html:85
+#: .\templates\tictactoes\tiktaktoe.html:60
+msgid "Tic-Tac-Toe"
+msgstr "Tic-Tac-Toe"
+
+#: .\templates\tictactoes\base_game.html:89
+msgid "Waiting for bets"
+msgstr "Waiting for opponent"
+
+#: .\templates\tictactoes\base_game.html:106
+#: .\templates\tictactoes\base_game.html:118
+msgid "Your opponent"
+msgstr "Your opponent"
+
+#: .\templates\tictactoes\base_game.html:136
+#: .\templates\tictactoes\includes\game_div.html:18
+msgid "Bet"
+msgstr "Bet"
+
+#: .\templates\tictactoes\base_game.html:140
+msgid "Make a move"
+msgstr "Make a move"
+
+#: .\templates\tictactoes\base_game.html:183
+#: .\templates\tictactoes\base_game.html:193
+msgid "Your move"
+msgstr "Your move"
+
+#: .\templates\tictactoes\base_game.html:185
+#: .\templates\tictactoes\base_game.html:195
+msgid "Opponent move"
+msgstr "Opponent move"
+
+#: .\templates\tictactoes\base_game.html:212
+msgid "You lost"
+msgstr "You lost"
+
+#: .\templates\tictactoes\base_game.html:214
+msgid "You won"
+msgstr "You won"
+
+#: .\templates\tictactoes\includes\game_div.html:7
+msgid "Room"
+msgstr "Room"
+
+#: .\templates\tictactoes\includes\game_div.html:22
+msgid "Field"
+msgstr "Field"
+
+#: .\templates\tictactoes\tiktaktoe.html:19
+msgid "Game creating"
+msgstr "Game creating"
+
+#: .\templates\tictactoes\tiktaktoe.html:22
+msgid "Select a field to play"
+msgstr "Select a field to play"
+
+#: .\templates\tictactoes\tiktaktoe.html:37
+msgid "Bet sum"
+msgstr "Bet sum"
+
+#: .\templates\tictactoes\tiktaktoe.html:40
+msgid "Enter bet sum"
+msgstr "Enter bet sum"
+
+#: .\templates\tictactoes\tiktaktoe.html:45
+msgid "Create"
+msgstr "Create"
+
+#: .\templates\tictactoes\tiktaktoe.html:65
+msgid "Create game"
+msgstr "Create game"
+
+#: .\templates\tictactoes\tiktaktoe.html:74
+msgid "Desired rate"
+msgstr "Desired rate"
+
+#: .\templates\tictactoes\tiktaktoe.html:85
+msgid "Custom room"
+msgstr "Custom rooms"

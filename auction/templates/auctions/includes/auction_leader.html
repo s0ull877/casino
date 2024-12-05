@@ -1,24 +1,25 @@
 {% load static %}
+{% load i18n %}
 {% load humanize %}
 
 {% if auction.leader %}
-<p class="leader_title">Текущий лидер</p>
+<p class="leader_title">{% trans "Current leader" %}</p>
 <div class="leader_info">
         <span class="sum_leader">${{auction.leader.deposit | intcomma}}</span>
         <span class="username_leader">@{{auction.leader.owner.nickname}}</span>
 </div>
 <div class="all_bank_info">
-        <p class="username">Общий банка:</p>
+        <p class="username">{% trans "Common bank" %}:</p>
         <span class="all_bank">${{auction.common_bank | intcomma }}</span>
 </div>
 {% else %}
-<p class="leader_title">Ожидание ставок</p>
+<p class="leader_title">{% trans "Waiting for bets" %}</p>
 <div class="leader_info">
         <span class="sum_leader">$0,00</span>
         <span class="username_leader"></span>
 </div>
 <div class="all_bank_info">
-        <p class="username">Общий банка:</p>
+        <p class="username">{% trans "Common bank" %}:</p>
         <span class="all_bank">${{auction.common_bank | intcomma }}</span>
 </div>
 {% endif %}

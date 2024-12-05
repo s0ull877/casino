@@ -1,4 +1,5 @@
 {% extends "users/base.html" %}
+{% load i18n %}
 
 {% load static %}
 
@@ -15,10 +16,10 @@
                 <div class="cls" onclick="hide()">
                 </div>
                 <div class="content_settings">
-                    <p>Создание аукциона</p>
+                    <p>{% trans "Auction creating" %}</p>
                 </div>
                 <div class="settings_player">
-                    <p class="title_settings">Количество игроков</p>
+                    <p class="title_settings">{% trans "Players count" %}</p>
                 </div>
                 <div class="position_radio">
                     <div class="radio_type">
@@ -42,15 +43,15 @@
                     </div>
                 </div>
                 <div class="settings_player">
-                    <p class="title_settings">Минимальная сумма ставки</p>
+                    <p class="title_settings">{% trans "Minimum bet amount" %}</p>
                 </div>
                 <div class="input_sum">
-                    <input type="number" name="min_bet" placeholder="Введите минимальную ставку">
+                    <input type="number" name="min_bet" placeholder="{% trans 'Enter minimum bet' %}">
                 </div>
                 <div class="footer_game">
                     <button type="sumbit" class="create_game_auction">
                         <div class="create_game_auction">
-                            Создать
+                            {% trans "Create" %}
                         </div>
                     </button>
                 </div>
@@ -65,12 +66,12 @@
                         <svg width="10" height="8" viewBox="0 0 10 8" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <path d="M-1.74847e-07 3.99998L3.79169 7.76571C3.86648 7.83999 3.95527 7.89891 4.05298 7.93911C4.1507 7.97931 4.25544 8 4.36121 8C4.46697 8 4.57171 7.97931 4.66943 7.93911C4.76714 7.89891 4.85593 7.83999 4.93072 7.76571C5.00551 7.69143 5.06484 7.60325 5.10532 7.5062C5.14579 7.40915 5.16663 7.30514 5.16663 7.20009C5.16663 7.09505 5.14579 6.99103 5.10532 6.89398C5.06484 6.79693 5.00551 6.70875 4.93072 6.63447L3.08361 4.8L9.19446 4.8C9.4081 4.8 9.61299 4.71571 9.76406 4.56568C9.91513 4.41565 10 4.21216 10 3.99997C10 3.78779 9.91513 3.5843 9.76406 3.43427C9.61299 3.28423 9.4081 3.19995 9.19446 3.19995L3.08361 3.19995L4.93072 1.36548C5.00579 1.29135 5.06536 1.20322 5.10601 1.10615C5.14665 1.00908 5.16758 0.904989 5.16758 0.799858C5.16758 0.694728 5.14665 0.590635 5.10601 0.493565C5.06536 0.396495 5.00579 0.308362 4.93072 0.234237C4.77966 0.084255 4.57481 2.76866e-07 4.3612 2.86203e-07C4.1476 2.9554e-07 3.94275 0.084255 3.79169 0.234237L-1.74847e-07 3.99998Z" fill="#707385"/>
                         </svg>            
-                        <p>Аукцион</p>
+                        <p>{% trans "Auction" %}</p>
                     </div>
                 </a>
                 <!-- <a href="/" class="no_hook" onclick="show()"> -->
                     <div class="create_game" {% if request.user.total_bet >= 1000 %}onclick="show()"{% endif %} >
-                        <p>Создать игру + </p>
+                        <p>{% trans "Create game" %} + </p>
                         <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <g style="mix-blend-mode:overlay">
                             <path d="M8.92995 6.588L6.63995 6.875L6.55795 7.255L7.00795 7.338C7.30195 7.408 7.35995 7.514 7.29595 7.807L6.55795 11.275C6.36395 12.172 6.66295 12.594 7.36595 12.594C7.91095 12.594 8.54395 12.342 8.83095 11.996L8.91895 11.58C8.71895 11.756 8.42695 11.826 8.23295 11.826C7.95795 11.826 7.85795 11.633 7.92895 11.293L8.92995 6.588ZM8.99995 4.5C8.99995 4.76522 8.8946 5.01957 8.70706 5.20711C8.51952 5.39464 8.26517 5.5 7.99995 5.5C7.73474 5.5 7.48038 5.39464 7.29285 5.20711C7.10531 5.01957 6.99995 4.76522 6.99995 4.5C6.99995 4.23478 7.10531 3.98043 7.29285 3.79289C7.48038 3.60536 7.73474 3.5 7.99995 3.5C8.26517 3.5 8.51952 3.60536 8.70706 3.79289C8.8946 3.98043 8.99995 4.23478 8.99995 4.5Z" fill="#6e5c47"/>
@@ -87,12 +88,12 @@
     <div class="position_class">
         <div class="background_games">
             <div class="background_list">
-                <p class="offical_title">Официальный аукцион</p>
+                <p class="offical_title">{% trans "Official auction" %}</p>
                 <div class="games_list">
                     <div class="type_game auction_content">
                         <div class="auction_content_about">
-                            <p class="title_type_game">Аукцион №1</p>
-                            <p class="quantity">Участников <span id="diamond-members"></span>/{{diamond_auction.max_members}}</p>
+                            <p class="title_type_game">{% trans "Auction" %} №1</p>
+                            <p class="quantity">{% trans "Members" %} <span id="diamond-members"></span>/{{diamond_auction.max_members}}</p>
                         </div>
                         <a href="{% url 'auctions:diamond' %}" class="no_hook">
                             <div class="auction_iamge">
@@ -384,7 +385,7 @@
                 </div>
             </div>
             <div class="state_auction">
-                <p class="state_auction_content">Желаемая ставка</p>
+                <p class="state_auction_content">{% trans "Desired rate" %}</p>
                 <p class="rate">$<span id="rate">1-10</span></p>
             </div>
             <div class="rate_status">
@@ -395,7 +396,7 @@
             </div>
             <div class="auction">
                 <div class="auction_title">
-                    <p>Пользовательские аукционы</p>
+                    <p>{% trans "Custom auction" %}</p>
                 </div>
             </div>
             <div id="auctions-list" class="auction_list">

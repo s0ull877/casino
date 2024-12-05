@@ -1,4 +1,5 @@
 {% extends "users/base.html" %}
+{% load i18n %}
 
 {% load static %}
 
@@ -8,7 +9,7 @@
 
 {% block content %}
     <div class="status_bar">
-        <p>Игроков онлайн: <span>215</span></p>
+        <p>{% trans "Players_online" %}<span>{{online}}</span></p>
         <!-- <img src="assets/img/dimond.svg" alt=""> -->
         <svg width="59" height="75" viewBox="0 0 40 75" fill="none" xmlns="http://www.w3.org/2000/svg">
             <g opacity="0.4" filter="url(#filter0_f_0_43)">
@@ -142,25 +143,25 @@
     </div>
     <div class="position_class">
         <div class="background_games">
-            <p>Список доступных игр</p>
+            <p>{% trans "Games_list" %}</p>
             <div class="background_list">
                 <div class="games_list">
                     <a href="{% url 'jackpots:index' %}" class="no_hook">
                         <div class="type_game jekpot">
-                            <p class="title_type_game">Джекпот</p>
-                            <p class="about_type_game">Описание игры.</p>
+                            <p class="title_type_game">{% trans "Jackpot" %}</p>
+                            <p class="about_type_game">{% trans "Try_your_luck" %}</p>
                         </div>
                     </a>
                     <a class="no_hook" href="{% url 'auctions:index' %}">
                         <div class="type_game aukcion">
-                            <p class="title_type_game">Аукцион</p>
-                            <p class="about_type_game">Описание игры.</p>
+                            <p class="title_type_game">{% trans "Auction" %}</p>
+                            <p class="about_type_game">{% trans "Highest_bid_will_win" %}</p>
                         </div>
                     </a>
                     <a href="{% url 'tictactoes:index' %}" class="no_hook">
                         <div class="type_game crestikinoloko">
-                            <p class="title_type_game">Крестики-Нолики</p>
-                            <p class="about_type_game">Описание игры.</p>
+                            <p class="title_type_game">{% trans "Tic_Tac_Toe" %}</p>
+                            <p class="about_type_game">{% trans "Сlassic_game_with_different_format" %}</p>
                         </div>
                     </a>
                 </div>
@@ -168,8 +169,8 @@
                     <a href="{% url 'users:top' %}" class="no_hook">
                         <div class="type_game players">
                             <div class="text-top">
-                                <p class="title_type_game">Топ игроков</p>
-                                <p class="about_type_game">Играйте и залетайте в топ!</p>
+                                <p class="title_type_game">{% trans "top_players" %}</p>
+                                <p class="about_type_game">{% trans "Play_and_get_to_the_top!" %}</p>
                             </div>
                             <div>
                                 <svg width="44" height="44" viewBox="0 0 44 44" fill="none" xmlns="http://www.w3.org/2000/svg">

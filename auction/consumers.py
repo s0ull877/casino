@@ -1,4 +1,4 @@
-
+import os
 from datetime import timedelta
 import json
 from decimal import Decimal
@@ -14,7 +14,6 @@ from django.utils.timezone import now
 from django.core.cache import cache
 
 from .models import Auction, AuctionBet
-from ballance.models import BallanceTransaction
 
 
 class AuctionsConsumer(AsyncWebsocketConsumer):
@@ -26,6 +25,8 @@ class AuctionsConsumer(AsyncWebsocketConsumer):
         await self.accept()
 
         await self.send_auctions()
+
+        os.environ['online'] = str(int(os.getenv('online')) + 1)
 
 
     async def send_auctions(self):
@@ -66,11 +67,17 @@ class AuctionsConsumer(AsyncWebsocketConsumer):
 
         await self.send_auctions()
 
+    async def disconnect(self, code):
+        os.environ['online'] = str(int(os.getenv('online')) - 1)
+        return await super().disconnect(code)
+
 
 
 class AuctionConsumer(WebsocketConsumer):
 
     def connect(self):
+
+        os.environ['online'] = str(int(os.getenv('online')) + 1)
 
         self.user = self.scope['user']
         self.group_name = self.scope['url_route']['kwargs']['group_name']
@@ -131,6 +138,7 @@ class AuctionConsumer(WebsocketConsumer):
         
         self.auction.members.remove(self.user)
         self.auction.save()
+        os.environ['online'] = str(int(os.getenv('online')) - 1)
 
         self.update_members()
 

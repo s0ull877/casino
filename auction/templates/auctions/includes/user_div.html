@@ -1,5 +1,6 @@
 {% load static %}
 {% load humanize %}
+{% load i18n %}
 
 <div id="user-{{member.id}}" class="user-card">
     <div class="user-photo">
@@ -7,6 +8,6 @@
     </div>
     <div class="user-info">
         <p class="user-title">@{{member.nickname}}</p>
-        <p class="user-range">Сумма ставки:&nbsp$<span>{% if bet %}{{bet.deposit | intcomma}}{% else %}0.00{% endif %}</span></p>
+        <p class="user-range">{% trans "Bet sum" %}:&nbsp$<span>{% if bet %}{{bet.deposit | intcomma}}{% else %}0.00{% endif %}</span></p>
     </div>
 </div>
