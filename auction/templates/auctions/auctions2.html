@@ -90,7 +90,7 @@
             <div class="background_list">
                 <p class="offical_title">{% trans "Official auction" %}</p>
                 <div class="games_list">
-                    <div class="type_game auction_content">
+                    <div class="type_game auction_content auction_content_new">
                         <div class="auction_content_about">
                             <p class="title_type_game">{% trans "Auction" %} №1</p>
                             <p class="quantity">{% trans "Members" %} <span id="diamond-members"></span>/{{diamond_auction.max_members}}</p>
@@ -453,8 +453,11 @@
         </div>
     </div>
     <script>
-
-        const ws = new WebSocket('ws://localhost:8000/ws/auctions/');
+        if (window.location.protocol == 'https:') {
+            const ws = new WebSocket('wss://' + window.location.host + '/ws/auctions/');
+        } else {
+            const ws = new WebSocket('ws://' + window.location.host + '/ws/auctions/');
+        }
 
         ws.onmessage = function(event) {
             let data = JSON.parse(event.data);

@@ -166,8 +166,11 @@
             }, 1000)
             
         }
-
-        let ws = new WebSocket('ws://localhost:8000/ws/game/{{game.group_name}}/');
+        if (window.location.protocol == 'https:') {
+            let ws = new WebSocket('wss://' + window.location.host + '/ws/game/{{game.group_name}}/');
+        } else {
+            let ws = new WebSocket('ws://' + window.location.host + '/ws/game/{{game.group_name}}/');
+        }
 
         ws.onmessage = function(event) {
 

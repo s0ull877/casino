@@ -140,7 +140,11 @@
     </div>
     <script>
 
-        const ws = new WebSocket('ws://localhost:8000/ws/games/');
+        if (window.location.protocol == 'https:') {
+            const ws = new WebSocket('wss://' + window.location.host + '/ws/games/');
+        } else {
+            const ws = new WebSocket('ws://' + window.location.host + '/ws/games/');
+        }
 
         ws.onmessage = function(event) {
             let data = JSON.parse(event.data);

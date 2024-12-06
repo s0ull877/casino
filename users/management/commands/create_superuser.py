@@ -10,4 +10,4 @@ class Command(BaseCommand):
     name='SUPERUSER'
 
     def handle(self, *args: Any, **options: Any) -> str | None:
-        self._class.objects.create_superuser(user_id='80082', nickname='admin', password='123486215382')
+        self._class.objects.create_superuser(user_id='111111', nickname='admin', password='123123')

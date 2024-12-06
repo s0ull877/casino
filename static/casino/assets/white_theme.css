@@ -15,7 +15,7 @@ body {
 .jekpot_status_bar, .jekpot_games_list {
     background: linear-gradient(130deg, #ffffff 26%, #62a1ffe6 68%, rgb(187, 214, 255) 90%, rgb(208, 227, 255) 170%, #ffffff 58%, #ffffff 100%)
 }
-.auction_status_bar, .auction_content {
+.auction_status_bar, .auction_content_new {
     background: linear-gradient(130deg, rgb(255, 255, 255) 26%, rgb(255, 255, 255) 48%, rgb(215, 159, 79) 90%, white 170%, rgb(233, 197, 161) 58%, rgb(255, 255, 255) 100%)
 }
 .tictaktoe_status_bar {

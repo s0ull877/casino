@@ -10,6 +10,7 @@ from ballance.serializers import UserSerializer, TransactionSerializer
 @api_view(['POST'])
 def create_user_apiview(request):
 
+    print('request!')
     serializer = UserSerializer(data=request.data)
 
     if serializer.is_valid():
